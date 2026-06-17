@@ -6788,7 +6788,7 @@ function mergeLoginOptions(loginOptions, otherLoginOptions) {
   };
 }
 const ONE_HOUR_IN_NANOSECONDS = BigInt(36e11);
-const DEFAULT_IDENTITY_PROVIDER = "https://id.ai";
+const DEFAULT_IDENTITY_PROVIDER = "https://id.ai/authorize";
 const InternetIdentityReactContext = reactExports.createContext(void 0);
 async function createAuthClient(createOptions) {
   const config = await loadConfig();
@@ -30650,21 +30650,7 @@ function HomePage() {
         children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight", children: "A truly Global Social Enterprise" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-white text-lg leading-relaxed", children: [
-              "TMU AI DAO is a IoM Hybrid Company",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => setIsIoMPopupOpen(true),
-                  className: "text-[#FFC300] hover:text-[#FF8C00] transition-colors cursor-pointer font-bold ml-0.5",
-                  "aria-label": "Learn more about IoM Hybrid Company",
-                  children: "*"
-                }
-              ),
-              " ",
-              "designed to endure as a social organization engendering social good for all time."
-            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-white text-lg leading-relaxed", children: "TMU AI DAO is being organized as a Swiss AG for a legal wrapper for the DAO with the requisite license for issuance of $TMU Utility Tokens. It is designed to endure as a social organization engendering social good for all time." }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-white text-lg leading-relaxed", children: [
               "You can Participate in it as a stakeholder, a builder and a doer in Nation Building & Social Edification",
               " ",
@@ -31366,7 +31352,8 @@ function ProjectsPage() {
       name: "CEITA",
       description: "CEITA is a research and innovation hub for agricultural technology advancement, providing training, capacity building, and cutting-edge solutions for modern farming across Africa.",
       category: "Center of Excellence IT Agriculture",
-      websiteUrl: "https://drive.google.com/file/d/1suf8NMMOFaCTSLp8OcAtZV9gvWfqL7P4/preview",
+      websiteUrl: "https://tmu.ai/docs/Presentation-of-UR-CAVM-(HoDs)-Academic-Meeting.pdf",
+      customButtonText: "Learn More",
       imageUrl: "/assets/generated/ceita-project.dim_400x250.png",
       status: "active"
     },
@@ -31384,7 +31371,8 @@ function ProjectsPage() {
       name: "TMU-CATNA",
       description: "TMU-CATNA (Call Any Telephone Number Anywhere) - Long distance calls with real-time speech-to-speech translation, connecting people across languages and borders.",
       category: "Communication / Translation",
-      websiteUrl: "https://www.tmu.ai",
+      websiteUrl: "https://www.youtube.com/watch?v=Cb35-vmGDDY",
+      customButtonText: "Learn More",
       imageUrl: "/assets/generated/tmu-catna-project.dim_400x250.png",
       status: "active"
     },
@@ -31395,7 +31383,17 @@ function ProjectsPage() {
       category: "No-Code Platform",
       websiteUrl: "https://www.tmu.ai",
       imageUrl: "/assets/image-1.png",
-      status: "active"
+      status: "active",
+      additionalButtons: [
+        {
+          text: "Infos & Demos",
+          url: "https://bit.ly/3IT0lDN"
+        },
+        {
+          text: "Service Provision Platform",
+          url: "https://drive.google.com/file/d/1WyYJUjT9G7xdVIVU7y-ZcSR2fjYeDFNf/view?usp=sharing"
+        }
+      ]
     },
     {
       id: BigInt(1010),
@@ -31523,6 +31521,57 @@ function ProjectsPage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-4 h-4" })
                 ] })
               }
+            ) : project.name === "TMU Enablement Platform" && project.additionalButtons ? (
+              // TMU Enablement Platform: all three buttons stacked vertically with equal size
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    asChild: true,
+                    className: "w-full text-white font-medium",
+                    style: {
+                      background: "linear-gradient(135deg, #009B3A 0%, #FFC300 100%)"
+                    },
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                      "a",
+                      {
+                        href: project.websiteUrl,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        className: "flex items-center justify-center gap-2",
+                        children: [
+                          "Visit Website",
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-4 h-4" })
+                        ]
+                      }
+                    )
+                  }
+                ),
+                project.additionalButtons.map((btn) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    asChild: true,
+                    className: "w-full text-white font-medium",
+                    style: {
+                      background: "linear-gradient(135deg, #009B3A 0%, #FFC300 100%)"
+                    },
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                      "a",
+                      {
+                        href: btn.url,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        className: "flex items-center justify-center gap-2",
+                        children: [
+                          btn.text,
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-4 h-4" })
+                        ]
+                      }
+                    )
+                  },
+                  btn.text
+                ))
+              ] })
             ) : project.name === "Morshid" ? (
               // Special layout for Morshid with buttons in 2-column rows
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
@@ -37027,6 +37076,30 @@ function TokenomicsPage() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl md:text-5xl font-bold text-white mb-4", children: "$TMU — The Utility Fuel of TMU AI DAO" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-gray-400 text-lg", children: "Powering AI services, governance, and digital identity across Africa" })
     ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center mb-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
+        type: "button",
+        onClick: () => window.open(
+          "https://tmu.ai/docs/TMU_Tokenomics_Framework_v3.pdf",
+          "_blank"
+        ),
+        style: {
+          backgroundColor: "#FFC300",
+          color: "#0a1628",
+          padding: "12px 28px",
+          borderRadius: "8px",
+          fontWeight: "700",
+          fontSize: "1rem",
+          border: "none",
+          cursor: "pointer",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "8px"
+        },
+        children: "⬇ Download Tokenomics"
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Card,
       {
@@ -37809,6 +37882,7 @@ function WhitePaperPage() {
           style: {
             background: "linear-gradient(135deg, #FFC300 0%, #FF8C00 100%)"
           },
+          onClick: () => window.open("https://tmu.ai/docs/$TMU_Whitepaper.pdf", "_blank"),
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Download, { className: "mr-2", size: 20 }),
             "Download PDF"
@@ -37845,7 +37919,7 @@ function WhitePaperPage() {
             className: "border-white/10",
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(CardHeader, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-white text-3xl", children: "Executive Summary" }) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-white leading-relaxed text-lg", children: "TMU AI DAO is a global social enterprise organized as an IoM Hybrid Company, delivering AI-powered Digital Public Infrastructure for Africa and the diaspora. Built on ICP, addressing healthcare, education, agriculture, financial inclusion, and governance." }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-white leading-relaxed text-lg", children: "TMU AI DAO is a global social enterprise being organized as a Swiss AG for a legal wrapper for the DAO with the requisite licence for issuance of $TMU utility tokens. delivering AI-powered Digital Public Infrastructure for Africa and the diaspora. Built on ICP, addressing healthcare, education, agriculture, financial inclusion, and governance." }) })
             ]
           }
         ) }),

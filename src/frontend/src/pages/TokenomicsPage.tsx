@@ -24,6 +24,34 @@ export default function TokenomicsPage() {
             </p>
           </div>
 
+          {/* Download Tokenomics Button */}
+          <div className="flex justify-center mb-8">
+            <button
+              type="button"
+              onClick={() =>
+                window.open(
+                  "https://tmu.ai/docs/TMU_Tokenomics_Framework_v3.pdf",
+                  "_blank",
+                )
+              }
+              style={{
+                backgroundColor: "#FFC300",
+                color: "#0a1628",
+                padding: "12px 28px",
+                borderRadius: "8px",
+                fontWeight: "700",
+                fontSize: "1rem",
+                border: "none",
+                cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              ⬇ Download Tokenomics
+            </button>
+          </div>
+
           {/* Key Info Box */}
           <Card
             style={{

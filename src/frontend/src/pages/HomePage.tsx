@@ -152,17 +152,10 @@ export default function HomePage() {
               </h2>
 
               <p className="text-white text-lg leading-relaxed">
-                TMU AI DAO is a IoM Hybrid Company
-                <button
-                  type="button"
-                  onClick={() => setIsIoMPopupOpen(true)}
-                  className="text-[#FFC300] hover:text-[#FF8C00] transition-colors cursor-pointer font-bold ml-0.5"
-                  aria-label="Learn more about IoM Hybrid Company"
-                >
-                  *
-                </button>{" "}
-                designed to endure as a social organization engendering social
-                good for all time.
+                TMU AI DAO is being organized as a Swiss AG for a legal wrapper
+                for the DAO with the requisite license for issuance of $TMU
+                Utility Tokens. It is designed to endure as a social
+                organization engendering social good for all time.
               </p>
 
               <p className="text-white text-lg leading-relaxed">

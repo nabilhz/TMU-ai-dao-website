@@ -195,6 +195,9 @@ export default function WhitePaperPage() {
             style={{
               background: "linear-gradient(135deg, #FFC300 0%, #FF8C00 100%)",
             }}
+            onClick={() =>
+              window.open("https://tmu.ai/docs/$TMU_Whitepaper.pdf", "_blank")
+            }
           >
             <Download className="mr-2" size={20} />
             Download PDF
@@ -254,11 +257,13 @@ export default function WhitePaperPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-white leading-relaxed text-lg">
-                    TMU AI DAO is a global social enterprise organized as an IoM
-                    Hybrid Company, delivering AI-powered Digital Public
-                    Infrastructure for Africa and the diaspora. Built on ICP,
-                    addressing healthcare, education, agriculture, financial
-                    inclusion, and governance.
+                    TMU AI DAO is a global social enterprise being organized as
+                    a Swiss AG for a legal wrapper for the DAO with the
+                    requisite licence for issuance of $TMU utility tokens.
+                    delivering AI-powered Digital Public Infrastructure for
+                    Africa and the diaspora. Built on ICP, addressing
+                    healthcare, education, agriculture, financial inclusion, and
+                    governance.
                   </p>
                 </CardContent>
               </Card>

@@ -148,7 +148,8 @@ export default function ProjectsPage() {
         "CEITA is a research and innovation hub for agricultural technology advancement, providing training, capacity building, and cutting-edge solutions for modern farming across Africa.",
       category: "Center of Excellence IT Agriculture",
       websiteUrl:
-        "https://drive.google.com/file/d/1suf8NMMOFaCTSLp8OcAtZV9gvWfqL7P4/preview",
+        "https://tmu.ai/docs/Presentation-of-UR-CAVM-(HoDs)-Academic-Meeting.pdf",
+      customButtonText: "Learn More",
       imageUrl: "/assets/generated/ceita-project.dim_400x250.png",
       status: "active",
     },
@@ -168,7 +169,8 @@ export default function ProjectsPage() {
       description:
         "TMU-CATNA (Call Any Telephone Number Anywhere) - Long distance calls with real-time speech-to-speech translation, connecting people across languages and borders.",
       category: "Communication / Translation",
-      websiteUrl: "https://www.tmu.ai",
+      websiteUrl: "https://www.youtube.com/watch?v=Cb35-vmGDDY",
+      customButtonText: "Learn More",
       imageUrl: "/assets/generated/tmu-catna-project.dim_400x250.png",
       status: "active",
     },
@@ -181,6 +183,16 @@ export default function ProjectsPage() {
       websiteUrl: "https://www.tmu.ai",
       imageUrl: "/assets/image-1.png",
       status: "active",
+      additionalButtons: [
+        {
+          text: "Infos & Demos",
+          url: "https://bit.ly/3IT0lDN",
+        },
+        {
+          text: "Service Provision Platform",
+          url: "https://drive.google.com/file/d/1WyYJUjT9G7xdVIVU7y-ZcSR2fjYeDFNf/view?usp=sharing",
+        },
+      ],
     },
     {
       id: BigInt(1010),
@@ -375,6 +387,50 @@ export default function ProjectsPage() {
                         <ArrowRight className="w-4 h-4" />
                       </span>
                     </Button>
+                  ) : project.name === "TMU Enablement Platform" &&
+                    project.additionalButtons ? (
+                    // TMU Enablement Platform: all three buttons stacked vertically with equal size
+                    <div className="flex flex-col gap-3">
+                      <Button
+                        asChild
+                        className="w-full text-white font-medium"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, #009B3A 0%, #FFC300 100%)",
+                        }}
+                      >
+                        <a
+                          href={project.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          Visit Website
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      </Button>
+                      {project.additionalButtons.map((btn) => (
+                        <Button
+                          key={btn.text}
+                          asChild
+                          className="w-full text-white font-medium"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, #009B3A 0%, #FFC300 100%)",
+                          }}
+                        >
+                          <a
+                            href={btn.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2"
+                          >
+                            {btn.text}
+                            <ArrowRight className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      ))}
+                    </div>
                   ) : project.name === "Morshid" ? (
                     // Special layout for Morshid with buttons in 2-column rows
                     <div className="space-y-3">
