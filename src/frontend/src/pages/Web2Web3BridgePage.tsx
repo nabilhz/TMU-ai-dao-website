@@ -7,6 +7,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useLanguage } from "@/i18n/LanguageContext";
 import {
   Building2,
   Cross,
@@ -34,6 +35,7 @@ interface UseCasePopup {
 }
 
 export default function Web2Web3BridgePage() {
+  const { t } = useLanguage();
   const [selectedUseCase, setSelectedUseCase] = useState<number | null>(null);
 
   // Static use cases data for display with icons
@@ -265,19 +267,21 @@ export default function Web2Web3BridgePage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              TMU Web2 to Web3 Bridge
+              {t("TMU Web2 to Web3 Bridge")}
             </h1>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              Connecting Traditional Services to Blockchain-Powered Solutions
+              {t(
+                "Connecting Traditional Services to Blockchain-Powered Solutions",
+              )}
             </p>
           </div>
 
           {/* Explanation Section */}
           <div className="mb-12">
             <p className="text-white text-lg leading-relaxed text-center max-w-4xl mx-auto">
-              TMU AI DAO uniquely bridges Web2 operations with Web3 transparency
-              and security. Real-world service providers can leverage blockchain
-              benefits without full migration.
+              {t(
+                "TMU AI DAO uniquely bridges Web2 operations with Web3 transparency and security. Real-world service providers can leverage blockchain benefits without full migration.",
+              )}
             </p>
           </div>
 
@@ -286,15 +290,17 @@ export default function Web2Web3BridgePage() {
             <div className="rounded-lg overflow-hidden shadow-2xl mb-6">
               <img
                 src="/assets/generated/web2-web3-bridge-hero-new.dim_1200x600.png"
-                alt="Web2 to Web3 Bridge - Traditional Systems to Blockchain Ecosystem"
+                alt={t(
+                  "Web2 to Web3 Bridge - Traditional Systems to Blockchain Ecosystem",
+                )}
                 className="w-full h-auto"
               />
             </div>
             <div className="text-center">
               <p className="text-white text-lg font-medium leading-relaxed max-w-5xl mx-auto">
-                Web2 Sources (databases, documents, records) → TMU Bridge
-                (processing, verification, anchoring) → Web3 Outputs (immutable
-                logs, credentials, proofs)
+                {t(
+                  "Web2 Sources (databases, documents, records) → TMU Bridge (processing, verification, anchoring) → Web3 Outputs (immutable logs, credentials, proofs)",
+                )}
               </p>
             </div>
           </div>
@@ -302,7 +308,7 @@ export default function Web2Web3BridgePage() {
           {/* Use Cases Grid Section */}
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-white mb-10 text-center">
-              Use Cases
+              {t("Use Cases")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               {useCasesDisplay.map((useCase) => (
@@ -320,12 +326,12 @@ export default function Web2Web3BridgePage() {
                       {getIcon(useCase.icon)}
                     </div>
                     <CardTitle className="text-white text-center text-base font-semibold">
-                      {useCase.title}
+                      {t(useCase.title)}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0">
                     <p className="text-gray-400 text-sm text-center leading-relaxed">
-                      {useCase.description}
+                      {t(useCase.description)}
                     </p>
                   </CardContent>
                 </Card>
@@ -346,10 +352,11 @@ export default function Web2Web3BridgePage() {
         >
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-white mb-2">
-              {selectedPopup?.title}
+              {selectedPopup && t(selectedPopup.title)}
             </DialogTitle>
             <DialogDescription className="sr-only">
-              Detailed information about {selectedPopup?.title}
+              {t("Detailed information about")}{" "}
+              {selectedPopup && t(selectedPopup.title)}
             </DialogDescription>
           </DialogHeader>
           <ScrollArea className="max-h-[calc(85vh-100px)] pr-4">
@@ -361,10 +368,10 @@ export default function Web2Web3BridgePage() {
                       style={{ color: selectedPopup.focusColor }}
                       className="font-semibold text-lg"
                     >
-                      Focus:
+                      {t("Focus:")}
                     </span>
                     <span className="text-white ml-2 text-base leading-relaxed">
-                      {selectedPopup.focus}
+                      {t(selectedPopup.focus)}
                     </span>
                   </div>
 
@@ -373,10 +380,10 @@ export default function Web2Web3BridgePage() {
                       style={{ color: selectedPopup.web3BenefitColor }}
                       className="font-semibold text-lg"
                     >
-                      Web3 Benefit:
+                      {t("Web3 Benefit:")}
                     </span>
                     <span className="text-white ml-2 text-base leading-relaxed">
-                      {selectedPopup.web3Benefit}
+                      {t(selectedPopup.web3Benefit)}
                     </span>
                   </div>
 
@@ -386,10 +393,10 @@ export default function Web2Web3BridgePage() {
                         style={{ color: selectedPopup.tokenUseColor }}
                         className="font-semibold text-lg"
                       >
-                        Token use:
+                        {t("Token use:")}
                       </span>
                       <span className="text-white ml-2 text-base leading-relaxed">
-                        {selectedPopup.tokenUse}
+                        {t(selectedPopup.tokenUse)}
                       </span>
                     </div>
                   )}
@@ -400,10 +407,10 @@ export default function Web2Web3BridgePage() {
                         style={{ color: selectedPopup.concernsColor }}
                         className="font-semibold text-lg"
                       >
-                        Concerns:
+                        {t("Concerns:")}
                       </span>
                       <span className="text-white ml-2 text-base leading-relaxed">
-                        {selectedPopup.concerns}
+                        {t(selectedPopup.concerns)}
                       </span>
                     </div>
                   )}

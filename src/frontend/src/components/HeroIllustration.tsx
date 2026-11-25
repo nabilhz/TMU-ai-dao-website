@@ -1,4 +1,8 @@
+import { useLanguage } from "@/i18n/LanguageContext";
+
 export default function HeroIllustration() {
+  const { t } = useLanguage();
+
   // Define the 6 nodes with their colors and positions (evenly distributed in a circle)
   const nodes = [
     {
@@ -74,7 +78,7 @@ export default function HeroIllustration() {
             viewBox="0 0 600 600"
             className="absolute inset-0 w-full h-full"
             style={{ maxWidth: "600px", maxHeight: "600px" }}
-            aria-label="TMU AI DAO network illustration"
+            aria-label={t("TMU AI DAO network illustration")}
             role="img"
           >
             <defs>

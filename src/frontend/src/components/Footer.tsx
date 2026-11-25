@@ -1,7 +1,10 @@
+import LanguageSwitch from "@/components/LanguageSwitch";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Heart, Linkedin } from "lucide-react";
 import { SiGithub, SiX } from "react-icons/si";
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer
       className="border-t border-white/10"
@@ -20,27 +23,29 @@ export default function Footer() {
               <span className="text-xl font-bold text-white">TMU AI DAO</span>
             </div>
             <p className="text-gray-400 text-sm max-w-md">
-              A global social enterprise DAO on the Internet Computer Protocol
-              (ICP), building the future of decentralized governance and Web3
-              innovation.
+              {t(
+                "A global social enterprise DAO on the Internet Computer Protocol (ICP), building the future of decentralized governance and Web3 innovation.",
+              )}
             </p>
           </div>
 
           {/* Quick Links - Two Column Layout */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-4">
+              {t("Quick Links")}
+            </h3>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
               <a
                 href="/"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Home
+                {t("Home")}
               </a>
               <a
                 href="/whitepaper"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                White Paper
+                {t("White Paper")}
               </a>
               <a
                 href="/tokenomics"
@@ -52,38 +57,38 @@ export default function Footer() {
                 href="/projects"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Projects/SubDAOs
+                {t("Projects/SubDAOs")}
               </a>
               <a
                 href="/roadmap"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Road Map
+                {t("Road Map")}
               </a>
               <a
                 href="/web2web3bridge"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Web2-Web3 Bridge
+                {t("Web2-Web3 Bridge")}
               </a>
               <a
                 href="/resource"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Resources
+                {t("Resources")}
               </a>
               <a
                 href="/signup"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Sign Up
+                {t("Sign Up")}
               </a>
             </div>
           </div>
 
           {/* Social Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Connect</h3>
+            <h3 className="text-white font-semibold mb-4">{t("Connect")}</h3>
             <div className="flex space-x-4">
               <a
                 href="https://twitter.com"
@@ -123,7 +128,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-[#1a2744] text-white text-sm rounded-md hover:bg-[#243555] transition-colors"
               >
-                Terms
+                {t("Terms")}
               </a>
               <a
                 href="https://www.tmu.ai/privacy.php"
@@ -131,13 +136,15 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-[#1a2744] text-white text-sm rounded-md hover:bg-[#243555] transition-colors"
               >
-                Privacy
+                {t("Privacy")}
               </a>
+              <LanguageSwitch />
             </div>
           </div>
           <p className="text-gray-400 text-sm flex items-center gap-1 mt-4 md:mt-0">
-            Built with <Heart size={14} className="text-red-500 fill-red-500" />{" "}
-            using{" "}
+            {t("Built with")}{" "}
+            <Heart size={14} className="text-red-500 fill-red-500" />{" "}
+            {t("using")}{" "}
             <a
               href="https://caffeine.ai"
               target="_blank"

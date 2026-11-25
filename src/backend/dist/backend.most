@@ -1,19 +1,19 @@
 // Version: 1.0.0
-type Data__80296667<K, V> =
-  {var count : Nat__1040412405; kvs : [var ?(K, V)]};
+type Data__1061330525<K, V> =
+  {var count : Nat__565224867; kvs : [var ?(K, V)]};
+type Int__326488490 = Int__616954475;
 type Int__616954475 = Int;
-type Int__837511138 = Int__616954475;
-type Internal__41346355<K, V> =
-  {children : [var ?Node__1000929467<K, V>]; data : Data__80296667<K, V>};
-type Leaf__712614010<K, V> = {data : Data__80296667<K, V>};
-type Map__222667396<K, V> = Map__912772452<K, V>;
-type Map__709709801<K, V> =
-  {var root : Node__1000929467<K, V>; var size : Nat__1040412405};
-type Map__912772452<K, V> = Map__709709801<K, V>;
-type Nat__1040412405 = Nat__920180692;
+type Internal__1060388275<K, V> =
+  {children : [var ?Node__1010487028<K, V>]; data : Data__1061330525<K, V>};
+type Leaf__8515789<K, V> = {data : Data__1061330525<K, V>};
+type Map__175655829<K, V> = Map__975833162<K, V>;
+type Map__925935234<K, V> =
+  {var root : Node__1010487028<K, V>; var size : Nat__565224867};
+type Map__975833162<K, V> = Map__925935234<K, V>;
+type Nat__565224867 = Nat__920180692;
 type Nat__920180692 = Nat;
-type Node__1000929467<K, V> =
-  {#internal : Internal__41346355<K, V>; #leaf : Leaf__712614010<K, V>};
+type Node__1010487028<K, V> =
+  {#internal : Internal__1060388275<K, V>; #leaf : Leaf__8515789<K, V>};
 type ProjectType__285885620 = {#learnMore; #multiButton; #website};
 type Project__762223144 =
   {
@@ -25,13 +25,13 @@ type Project__762223144 =
     projectType : ProjectType__285885620;
     url : Text
   };
-type StripeConfiguration__87721349 =
+type StripeConfiguration__979313427 =
   {allowedCountries : [Text]; secretKey : Text};
-type Time__298180599 = Int__837511138;
-type Time__688418391 = Time__298180599;
+type Time__504000406 = Int__326488490;
+type Time__947132877 = Time__504000406;
 type UserProfile__491224006 =
   {
-    createdAt : Time__688418391;
+    createdAt : Time__947132877;
     email : Text;
     fullName : Text;
     walletAddress : Text
@@ -44,25 +44,22 @@ actor {
   stable accessControlState :
     {
       var adminAssigned : Bool;
-      userRoles : Map__222667396<Principal, UserRole__1073662873>
+      userRoles : Map__175655829<Principal, UserRole__1073662873>
     };
   stable architectureLayers : [{description : Text; title : Text}];
   stable guides : [{description : Text; title : Text}];
   stable projects :
     {
-      var root : Node__1000929467<Text, Project__762223144>;
-      var size : Nat__1040412405
+      var root : Node__1010487028<Text, Project__762223144>;
+      var size : Nat__565224867
     };
   stable resources : [{filePath : Text; title : Text}];
   stable sessionOwners :
-    {
-      var root : Node__1000929467<Text, Principal>;
-      var size : Nat__1040412405
-    };
-  stable var stripeConfiguration : ?StripeConfiguration__87721349;
+    {var root : Node__1010487028<Text, Principal>; var size : Nat__565224867};
+  stable var stripeConfiguration : ?StripeConfiguration__979313427;
   stable userProfiles :
     {
-      var root : Node__1000929467<Principal, UserProfile__491224006>;
-      var size : Nat__1040412405
+      var root : Node__1010487028<Principal, UserProfile__491224006>;
+      var size : Nat__565224867
     }
 };

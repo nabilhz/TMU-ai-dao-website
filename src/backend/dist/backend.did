@@ -1,14 +1,3 @@
-type http_request_result = 
- record {
-   body: blob;
-   headers: vec http_header;
-   status: nat;
- };
-type http_header = 
- record {
-   name: text;
-   value: text;
- };
 type _ImmutableObjectStorageRefillResult = 
  record {
    success: opt bool;
@@ -38,13 +27,13 @@ type UserProfile =
 type TransformationOutput = 
  record {
    body: blob;
-   headers: vec http_header;
+   headers: vec HttpHeader;
    status: nat;
  };
 type TransformationInput = 
  record {
    context: blob;
-   response: http_request_result;
+   response: HttpRequestResult;
  };
 type TokenPurchaseValidation = 
  record {
@@ -115,6 +104,17 @@ type Project =
    projectName: text;
    projectType: ProjectType;
    url: text;
+ };
+type HttpRequestResult = 
+ record {
+   body: blob;
+   headers: vec HttpHeader;
+   status: nat;
+ };
+type HttpHeader = 
+ record {
+   name: text;
+   value: text;
  };
 type Guide = 
  record {

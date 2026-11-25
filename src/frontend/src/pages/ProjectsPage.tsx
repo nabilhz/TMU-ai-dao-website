@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
@@ -32,6 +33,7 @@ interface Project {
 }
 
 export default function ProjectsPage() {
+  const { t } = useLanguage();
   const [isTmuIresPopupOpen, setIsTmuIresPopupOpen] = useState(false);
 
   // Static projects to display
@@ -243,18 +245,19 @@ export default function ProjectsPage() {
       return (
         <div className="space-y-2">
           <p className="text-white text-sm leading-relaxed">
-            {project.description}
+            {t(project.description)}
           </p>
           <ul className="space-y-1 pl-4">
             <li className="text-white text-sm leading-relaxed">
-              - Raising the digital consciousness of general population
+              {t("- Raising the digital consciousness of general population")}
             </li>
             <li className="text-white text-sm leading-relaxed">
-              - Contributing to meeting the UN SDG (Sustainable Development
-              Goals)
+              {t(
+                "- Contributing to meeting the UN SDG (Sustainable Development Goals)",
+              )}
             </li>
             <li className="text-white text-sm leading-relaxed">
-              - Building kinder, more equitable, more enlightened society
+              {t("- Building kinder, more equitable, more enlightened society")}
             </li>
           </ul>
         </div>
@@ -262,7 +265,7 @@ export default function ProjectsPage() {
     }
 
     if (project.name === "TeleMeetUp & TMU-Notes") {
-      const lines = project.description.split("\n");
+      const lines = t(project.description).split("\n");
       const mainText = lines[0];
       const bulletPoints = lines
         .slice(1)
@@ -283,7 +286,7 @@ export default function ProjectsPage() {
     }
 
     // For other projects, use the original rendering logic
-    const parts = project.description.split("\n\n");
+    const parts = t(project.description).split("\n\n");
 
     return (
       <div className="space-y-3">
@@ -314,11 +317,12 @@ export default function ProjectsPage() {
           {/* Header Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our Projects & SubDAOs
+              {t("Our Projects & SubDAOs")}
             </h1>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              TMU AI DAO addresses critical challenges across Africa and the
-              diaspora through specialized projects
+              {t(
+                "TMU AI DAO addresses critical challenges across Africa and the diaspora through specialized projects",
+              )}
             </p>
           </div>
 
@@ -353,7 +357,7 @@ export default function ProjectsPage() {
                       }}
                       className="border"
                     >
-                      {project.category}
+                      {t(project.category)}
                     </Badge>
                   </div>
                   <CardDescription className="text-white text-sm leading-relaxed">
@@ -371,7 +375,7 @@ export default function ProjectsPage() {
                         backgroundColor: "#4B5563",
                       }}
                     >
-                      Coming Soon
+                      {t("Coming Soon")}
                     </Button>
                   ) : project.hasPopup ? (
                     <Button
@@ -383,7 +387,7 @@ export default function ProjectsPage() {
                       }}
                     >
                       <span className="flex items-center justify-center gap-2">
-                        Learn More
+                        {t("Learn More")}
                         <ArrowRight className="w-4 h-4" />
                       </span>
                     </Button>
@@ -405,7 +409,7 @@ export default function ProjectsPage() {
                           rel="noopener noreferrer"
                           className="flex items-center justify-center gap-2"
                         >
-                          Visit Website
+                          {t("Visit Website")}
                           <ArrowRight className="w-4 h-4" />
                         </a>
                       </Button>
@@ -425,7 +429,7 @@ export default function ProjectsPage() {
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2"
                           >
-                            {btn.text}
+                            {t(btn.text)}
                             <ArrowRight className="w-4 h-4" />
                           </a>
                         </Button>
@@ -450,7 +454,7 @@ export default function ProjectsPage() {
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-1"
                           >
-                            Visit morshid.ma
+                            {t("Visit morshid.ma")}
                             <ArrowRight className="w-3 h-3" />
                           </a>
                         </Button>
@@ -469,7 +473,7 @@ export default function ProjectsPage() {
                               rel="noopener noreferrer"
                               className="flex items-center justify-center gap-1"
                             >
-                              View Infographic
+                              {t("View Infographic")}
                               <ArrowRight className="w-3 h-3" />
                             </a>
                           </Button>
@@ -494,7 +498,7 @@ export default function ProjectsPage() {
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-1"
                               >
-                                {project.additionalButtons[0].text}
+                                {t(project.additionalButtons[0].text)}
                                 <ArrowRight className="w-3 h-3" />
                               </a>
                             </Button>
@@ -512,7 +516,7 @@ export default function ProjectsPage() {
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-1"
                               >
-                                {project.additionalButtons[1].text}
+                                {t(project.additionalButtons[1].text)}
                                 <ArrowRight className="w-3 h-3" />
                               </a>
                             </Button>
@@ -533,7 +537,7 @@ export default function ProjectsPage() {
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-1"
                               >
-                                {project.additionalButtons[2].text}
+                                {t(project.additionalButtons[2].text)}
                                 <ArrowRight className="w-3 h-3" />
                               </a>
                             </Button>
@@ -551,7 +555,7 @@ export default function ProjectsPage() {
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-1"
                               >
-                                {project.additionalButtons[3].text}
+                                {t(project.additionalButtons[3].text)}
                                 <ArrowRight className="w-3 h-3" />
                               </a>
                             </Button>
@@ -572,7 +576,7 @@ export default function ProjectsPage() {
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-1"
                               >
-                                {project.additionalButtons[4].text}
+                                {t(project.additionalButtons[4].text)}
                                 <ArrowRight className="w-3 h-3" />
                               </a>
                             </Button>
@@ -597,7 +601,7 @@ export default function ProjectsPage() {
                           rel="noopener noreferrer"
                           className="flex items-center justify-center gap-2"
                         >
-                          Visit Website
+                          {t("Visit Website")}
                           <ArrowRight className="w-4 h-4" />
                         </a>
                       </Button>
@@ -615,7 +619,7 @@ export default function ProjectsPage() {
                           rel="noopener noreferrer"
                           className="flex items-center justify-center gap-2"
                         >
-                          {project.secondaryButton.text}
+                          {t(project.secondaryButton.text)}
                           <ArrowRight className="w-4 h-4" />
                         </a>
                       </Button>
@@ -636,7 +640,7 @@ export default function ProjectsPage() {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2"
                       >
-                        {project.customButtonText || "Visit Website"}
+                        {t(project.customButtonText || "Visit Website")}
                         <ArrowRight className="w-4 h-4" />
                       </a>
                     </Button>
@@ -653,9 +657,12 @@ export default function ProjectsPage() {
         isOpen={isTmuIresPopupOpen}
         onClose={() => setIsTmuIresPopupOpen(false)}
         content={{
-          title: "TMU-IRES - Public Safety and Drone-based Service Provision",
-          description:
+          title: t(
+            "TMU-IRES - Public Safety and Drone-based Service Provision",
+          ),
+          description: t(
             "TMU-IRES is built on our TMU Enablement Platform, which offers the functional capability for immediacy of presentation of data to all participants in essential units of an Operation for real-time discussion / advisory across geographies and language barriers with multi-modal real-time communication capability (WebRTC) as PWA and also through Whatsapp, Telegram, VoIP, GSM, PSTN, USSD etc.\n\nThis is achieved with our proprietary development of No-Code AI Agents and Last Mile Facility Builder complete with very versatile capability for integration through API with corporate databases etc.",
+          ),
           documentationLink: "https://tmu.ai/docs/TMU-IRES.pdf",
           videoLink: "https://www.youtube.com/watch?v=-_rLVpmdSfo",
           additionalLinks: "https://linktr.ee/tmu_ires",

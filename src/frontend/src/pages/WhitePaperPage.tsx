@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { CheckCircle2, Download, FileText, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function WhitePaperPage() {
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState("executive-summary");
 
   useEffect(() => {
@@ -132,11 +134,12 @@ export default function WhitePaperPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            TMU AI DAO White Paper
+            {t("TMU AI DAO White Paper")}
           </h1>
           <p className="text-gray-400 text-lg mb-6">
-            Version 2.0 - Complete Vision for AI-Powered Digital Public
-            Infrastructure
+            {t(
+              "Version 2.0 - Complete Vision for AI-Powered Digital Public Infrastructure",
+            )}
           </p>
 
           {/* TMU Strategic Assessment Button */}
@@ -160,7 +163,7 @@ export default function WhitePaperPage() {
               }}
             >
               <FileText className="mr-2" size={20} />
-              TMU Strategic Assessment
+              {t("TMU Strategic Assessment")}
             </Button>
           </div>
 
@@ -185,7 +188,7 @@ export default function WhitePaperPage() {
               }}
             >
               <Play className="mr-2" size={20} fill="white" />
-              White Paper in a Nutshell
+              {t("White Paper in a Nutshell")}
             </Button>
           </div>
 
@@ -200,7 +203,7 @@ export default function WhitePaperPage() {
             }
           >
             <Download className="mr-2" size={20} />
-            Download PDF
+            {t("Download PDF")}
           </Button>
         </div>
 
@@ -233,7 +236,7 @@ export default function WhitePaperPage() {
                             : {}
                         }
                       >
-                        {link.label}
+                        {t(link.label)}
                       </button>
                     </li>
                   ))}
@@ -252,18 +255,14 @@ export default function WhitePaperPage() {
               >
                 <CardHeader>
                   <CardTitle className="text-white text-3xl">
-                    Executive Summary
+                    {t("Executive Summary")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-white leading-relaxed text-lg">
-                    TMU AI DAO is a global social enterprise being organized as
-                    a Swiss AG for a legal wrapper for the DAO with the
-                    requisite licence for issuance of $TMU utility tokens.
-                    delivering AI-powered Digital Public Infrastructure for
-                    Africa and the diaspora. Built on ICP, addressing
-                    healthcare, education, agriculture, financial inclusion, and
-                    governance.
+                    {t(
+                      "TMU AI DAO is a global social enterprise being organized as a Swiss AG for a legal wrapper for the DAO with the requisite licence for issuance of $TMU utility tokens. delivering AI-powered Digital Public Infrastructure for Africa and the diaspora. Built on ICP, addressing healthcare, education, agriculture, financial inclusion, and governance.",
+                    )}
                   </p>
                 </CardContent>
               </Card>
@@ -277,7 +276,7 @@ export default function WhitePaperPage() {
               >
                 <CardHeader>
                   <CardTitle className="text-white text-3xl">
-                    The Problem
+                    {t("The Problem")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -289,10 +288,10 @@ export default function WhitePaperPage() {
                         style={{ backgroundColor: "#0f172a" }}
                       >
                         <h4 className="text-white font-semibold text-lg mb-2">
-                          {card.title}
+                          {t(card.title)}
                         </h4>
                         <p className="text-gray-400 text-sm leading-relaxed">
-                          {card.description}
+                          {t(card.description)}
                         </p>
                       </div>
                     ))}
@@ -309,21 +308,21 @@ export default function WhitePaperPage() {
               >
                 <CardHeader>
                   <CardTitle className="text-white text-3xl">
-                    The TMU Solution
+                    {t("The TMU Solution")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300 mb-8 leading-relaxed">
-                    TMU AI DAO provides a comprehensive 6-layer architecture
-                    that delivers AI-powered services while ensuring security,
-                    privacy, and decentralized governance.
+                    {t(
+                      "TMU AI DAO provides a comprehensive 6-layer architecture that delivers AI-powered services while ensuring security, privacy, and decentralized governance.",
+                    )}
                   </p>
 
                   {/* Architecture Diagram */}
                   <div className="mb-8">
                     <img
                       src="/assets/generated/architecture-diagram.dim_800x600.png"
-                      alt="TMU Architecture Diagram"
+                      alt={t("TMU Architecture Diagram")}
                       className="w-full rounded-lg"
                     />
                   </div>
@@ -347,10 +346,10 @@ export default function WhitePaperPage() {
                           </div>
                           <div className="flex-1">
                             <h4 className="text-white font-semibold text-lg mb-1">
-                              {layer.name}
+                              {t(layer.name)}
                             </h4>
                             <p className="text-gray-400 text-sm">
-                              {layer.description}
+                              {t(layer.description)}
                             </p>
                           </div>
                         </div>
@@ -369,7 +368,7 @@ export default function WhitePaperPage() {
               >
                 <CardHeader>
                   <CardTitle className="text-white text-3xl">
-                    Technology Architecture
+                    {t("Technology Architecture")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -379,7 +378,7 @@ export default function WhitePaperPage() {
                     style={{ backgroundColor: "#0f172a" }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-4">
-                      ICP Benefits
+                      {t("ICP Benefits")}
                     </h4>
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-start">
@@ -388,9 +387,10 @@ export default function WhitePaperPage() {
                           size={20}
                         />
                         <span>
-                          <strong className="text-white">Speed:</strong>{" "}
-                          Lightning-fast transactions with minimal fees,
-                          enabling real-time AI service delivery
+                          <strong className="text-white">{t("Speed:")}</strong>{" "}
+                          {t(
+                            "Lightning-fast transactions with minimal fees, enabling real-time AI service delivery",
+                          )}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -399,9 +399,12 @@ export default function WhitePaperPage() {
                           size={20}
                         />
                         <span>
-                          <strong className="text-white">Security:</strong>{" "}
-                          Advanced cryptography and consensus mechanisms
-                          ensuring data integrity
+                          <strong className="text-white">
+                            {t("Security:")}
+                          </strong>{" "}
+                          {t(
+                            "Advanced cryptography and consensus mechanisms ensuring data integrity",
+                          )}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -410,9 +413,12 @@ export default function WhitePaperPage() {
                           size={20}
                         />
                         <span>
-                          <strong className="text-white">Scalability:</strong>{" "}
-                          Unlimited capacity to serve millions of users across
-                          Africa
+                          <strong className="text-white">
+                            {t("Scalability:")}
+                          </strong>{" "}
+                          {t(
+                            "Unlimited capacity to serve millions of users across Africa",
+                          )}
                         </span>
                       </li>
                     </ul>
@@ -424,7 +430,7 @@ export default function WhitePaperPage() {
                     style={{ backgroundColor: "#0f172a" }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-4">
-                      TMU Enablement Platform
+                      {t("TMU Enablement Platform")}
                     </h4>
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-start">
@@ -434,9 +440,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            No-Code AI Agent Builder:
+                            {t("No-Code AI Agent Builder:")}
                           </strong>{" "}
-                          Create custom AI agents without programming
+                          {t("Create custom AI agents without programming")}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -446,10 +452,11 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Last-Mile Facility Builder:
+                            {t("Last-Mile Facility Builder:")}
                           </strong>{" "}
-                          Deploy services to remote areas with minimal
-                          infrastructure
+                          {t(
+                            "Deploy services to remote areas with minimal infrastructure",
+                          )}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -459,10 +466,11 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Multi-Modal Communication:
+                            {t("Multi-Modal Communication:")}
                           </strong>{" "}
-                          WebRTC, WhatsApp, Telegram, VoIP, GSM, PSTN, USSD
-                          support
+                          {t(
+                            "WebRTC, WhatsApp, Telegram, VoIP, GSM, PSTN, USSD support",
+                          )}
                         </span>
                       </li>
                     </ul>
@@ -479,15 +487,14 @@ export default function WhitePaperPage() {
               >
                 <CardHeader>
                   <CardTitle className="text-white text-3xl">
-                    Governance Model
+                    {t("Governance Model")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-gray-300 leading-relaxed">
-                    TMU AI DAO implements a multi-layered governance structure
-                    combining the legal framework of an IoM Hybrid Company with
-                    decentralized decision-making through the TMU-NNS (Network
-                    Nervous System).
+                    {t(
+                      "TMU AI DAO implements a multi-layered governance structure combining the legal framework of an IoM Hybrid Company with decentralized decision-making through the TMU-NNS (Network Nervous System).",
+                    )}
                   </p>
 
                   {/* TMU-NNS */}
@@ -496,7 +503,7 @@ export default function WhitePaperPage() {
                     style={{ backgroundColor: "#0f172a" }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-4">
-                      TMU-NNS (Network Nervous System)
+                      {t("TMU-NNS (Network Nervous System)")}
                     </h4>
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-start">
@@ -506,19 +513,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Proposal System:
+                            {t("Proposal System:")}
                           </strong>{" "}
-                          Community members submit and vote on proposals
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle2
-                          className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
-                          size={20}
-                        />
-                        <span>
-                          <strong className="text-white">Voting Power:</strong>{" "}
-                          Based on staked $TMU tokens and lock duration
+                          {t("Community members submit and vote on proposals")}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -528,9 +525,21 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Treasury Management:
+                            {t("Voting Power:")}
                           </strong>{" "}
-                          Community-controlled allocation of resources
+                          {t("Based on staked $TMU tokens and lock duration")}
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle2
+                          className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
+                          size={20}
+                        />
+                        <span>
+                          <strong className="text-white">
+                            {t("Treasury Management:")}
+                          </strong>{" "}
+                          {t("Community-controlled allocation of resources")}
                         </span>
                       </li>
                     </ul>
@@ -542,11 +551,12 @@ export default function WhitePaperPage() {
                     style={{ backgroundColor: "#0f172a" }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-4">
-                      SubDAOs
+                      {t("SubDAOs")}
                     </h4>
                     <p className="text-gray-300 mb-4">
-                      Sector-specific SubDAOs enable focused governance and
-                      innovation:
+                      {t(
+                        "Sector-specific SubDAOs enable focused governance and innovation:",
+                      )}
                     </p>
                     <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
@@ -554,28 +564,28 @@ export default function WhitePaperPage() {
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Healthcare SubDAO</span>
+                        <span>{t("Healthcare SubDAO")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Education SubDAO</span>
+                        <span>{t("Education SubDAO")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Agriculture SubDAO</span>
+                        <span>{t("Agriculture SubDAO")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Finance SubDAO</span>
+                        <span>{t("Finance SubDAO")}</span>
                       </li>
                     </ul>
                   </div>
@@ -591,13 +601,14 @@ export default function WhitePaperPage() {
               >
                 <CardHeader>
                   <CardTitle className="text-white text-3xl">
-                    Token Utility
+                    {t("Token Utility")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-gray-300 leading-relaxed">
-                    The $TMU token is a utility token powering the TMU AI DAO
-                    ecosystem with multiple use cases:
+                    {t(
+                      "The $TMU token is a utility token powering the TMU AI DAO ecosystem with multiple use cases:",
+                    )}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -607,12 +618,12 @@ export default function WhitePaperPage() {
                       style={{ backgroundColor: "#0f172a" }}
                     >
                       <h4 className="text-[#FFC300] font-semibold text-lg mb-3">
-                        AI Compute Credits
+                        {t("AI Compute Credits")}
                       </h4>
                       <p className="text-gray-300 text-sm">
-                        Pay for AI services including health diagnostics,
-                        educational content, agricultural advice, and financial
-                        tools.
+                        {t(
+                          "Pay for AI services including health diagnostics, educational content, agricultural advice, and financial tools.",
+                        )}
                       </p>
                     </div>
 
@@ -622,11 +633,12 @@ export default function WhitePaperPage() {
                       style={{ backgroundColor: "#0f172a" }}
                     >
                       <h4 className="text-[#FFC300] font-semibold text-lg mb-3">
-                        DID Verification
+                        {t("DID Verification")}
                       </h4>
                       <p className="text-gray-300 text-sm">
-                        Create and verify decentralized identities, enabling
-                        secure access to services and credentials.
+                        {t(
+                          "Create and verify decentralized identities, enabling secure access to services and credentials.",
+                        )}
                       </p>
                     </div>
 
@@ -636,11 +648,12 @@ export default function WhitePaperPage() {
                       style={{ backgroundColor: "#0f172a" }}
                     >
                       <h4 className="text-[#FFC300] font-semibold text-lg mb-3">
-                        Credential Anchoring
+                        {t("Credential Anchoring")}
                       </h4>
                       <p className="text-gray-300 text-sm">
-                        Anchor educational certificates, medical records, and
-                        professional credentials on-chain.
+                        {t(
+                          "Anchor educational certificates, medical records, and professional credentials on-chain.",
+                        )}
                       </p>
                     </div>
 
@@ -650,11 +663,12 @@ export default function WhitePaperPage() {
                       style={{ backgroundColor: "#0f172a" }}
                     >
                       <h4 className="text-[#FFC300] font-semibold text-lg mb-3">
-                        Governance Participation
+                        {t("Governance Participation")}
                       </h4>
                       <p className="text-gray-300 text-sm">
-                        Stake tokens to participate in TMU-NNS governance and
-                        vote on proposals.
+                        {t(
+                          "Stake tokens to participate in TMU-NNS governance and vote on proposals.",
+                        )}
                       </p>
                     </div>
                   </div>
@@ -665,7 +679,7 @@ export default function WhitePaperPage() {
                     style={{ backgroundColor: "#0f172a" }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-4">
-                      Staking Benefits
+                      {t("Staking Benefits")}
                     </h4>
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-start">
@@ -675,9 +689,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Bronze (1 year):
+                            {t("Bronze (1 year):")}
                           </strong>{" "}
-                          10% discount on AI services
+                          {t("10% discount on AI services")}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -687,9 +701,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Silver (2 years):
+                            {t("Silver (2 years):")}
                           </strong>{" "}
-                          20% discount on AI services
+                          {t("20% discount on AI services")}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -699,9 +713,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Gold (3 years):
+                            {t("Gold (3 years):")}
                           </strong>{" "}
-                          30% discount on AI services
+                          {t("30% discount on AI services")}
                         </span>
                       </li>
                     </ul>
@@ -717,7 +731,9 @@ export default function WhitePaperPage() {
                 className="border-white/10"
               >
                 <CardHeader>
-                  <CardTitle className="text-white text-3xl">Roadmap</CardTitle>
+                  <CardTitle className="text-white text-3xl">
+                    {t("Roadmap")}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Phase 1 */}
@@ -729,7 +745,7 @@ export default function WhitePaperPage() {
                     }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-3">
-                      Phase 1: Foundation (Q1-Q2 2025)
+                      {t("Phase 1: Foundation (Q1-Q2 2025)")}
                     </h4>
                     <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
@@ -737,21 +753,21 @@ export default function WhitePaperPage() {
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>IoM Hybrid Company formation</span>
+                        <span>{t("IoM Hybrid Company formation")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Core platform development on ICP</span>
+                        <span>{t("Core platform development on ICP")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Initial AI microservices deployment</span>
+                        <span>{t("Initial AI microservices deployment")}</span>
                       </li>
                     </ul>
                   </div>
@@ -765,7 +781,7 @@ export default function WhitePaperPage() {
                     }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-3">
-                      Phase 2: Launch (Q3-Q4 2025)
+                      {t("Phase 2: Launch (Q3-Q4 2025)")}
                     </h4>
                     <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
@@ -773,21 +789,23 @@ export default function WhitePaperPage() {
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>$TMU token launch</span>
+                        <span>{t("$TMU token launch")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>TMU-NNS governance activation</span>
+                        <span>{t("TMU-NNS governance activation")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>First pilot projects in Morocco and Kenya</span>
+                        <span>
+                          {t("First pilot projects in Morocco and Kenya")}
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -801,7 +819,7 @@ export default function WhitePaperPage() {
                     }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-3">
-                      Phase 3: Expansion (2026)
+                      {t("Phase 3: Expansion (2026)")}
                     </h4>
                     <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
@@ -810,8 +828,9 @@ export default function WhitePaperPage() {
                           size={20}
                         />
                         <span>
-                          SubDAO launches (Healthcare, Education, Agriculture,
-                          Finance)
+                          {t(
+                            "SubDAO launches (Healthcare, Education, Agriculture, Finance)",
+                          )}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -819,14 +838,14 @@ export default function WhitePaperPage() {
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Expansion to 10 African countries</span>
+                        <span>{t("Expansion to 10 African countries")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>1 million active users milestone</span>
+                        <span>{t("1 million active users milestone")}</span>
                       </li>
                     </ul>
                   </div>
@@ -840,7 +859,7 @@ export default function WhitePaperPage() {
                     }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-3">
-                      Phase 4: Scale (2027+)
+                      {t("Phase 4: Scale (2027+)")}
                     </h4>
                     <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
@@ -848,21 +867,21 @@ export default function WhitePaperPage() {
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Pan-African coverage (54 countries)</span>
+                        <span>{t("Pan-African coverage (54 countries)")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>10 million active users</span>
+                        <span>{t("10 million active users")}</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle2
                           className="text-[#009B3A] mr-3 mt-1 flex-shrink-0"
                           size={20}
                         />
-                        <span>Global diaspora integration</span>
+                        <span>{t("Global diaspora integration")}</span>
                       </li>
                     </ul>
                   </div>
@@ -878,14 +897,14 @@ export default function WhitePaperPage() {
               >
                 <CardHeader>
                   <CardTitle className="text-white text-3xl">
-                    Legal Structure
+                    {t("Legal Structure")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-gray-300 leading-relaxed">
-                    TMU AI DAO is organized as an Isle of Man (IoM) Hybrid
-                    Company, combining the benefits of traditional corporate
-                    structure with decentralized governance.
+                    {t(
+                      "TMU AI DAO is organized as an Isle of Man (IoM) Hybrid Company, combining the benefits of traditional corporate structure with decentralized governance.",
+                    )}
                   </p>
 
                   {/* IoM Hybrid Benefits */}
@@ -894,7 +913,7 @@ export default function WhitePaperPage() {
                     style={{ backgroundColor: "#0f172a" }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-4">
-                      IoM Hybrid Company Benefits
+                      {t("IoM Hybrid Company Benefits")}
                     </h4>
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-start">
@@ -904,10 +923,11 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Legal Recognition:
+                            {t("Legal Recognition:")}
                           </strong>{" "}
-                          Recognized legal entity with clear regulatory
-                          framework
+                          {t(
+                            "Recognized legal entity with clear regulatory framework",
+                          )}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -917,10 +937,11 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Hybrid Governance:
+                            {t("Hybrid Governance:")}
                           </strong>{" "}
-                          Combines traditional board oversight with DAO
-                          governance
+                          {t(
+                            "Combines traditional board oversight with DAO governance",
+                          )}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -930,9 +951,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Asset Protection:
+                            {t("Asset Protection:")}
                           </strong>{" "}
-                          Clear ownership and liability framework
+                          {t("Clear ownership and liability framework")}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -942,9 +963,11 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Tax Efficiency:
+                            {t("Tax Efficiency:")}
                           </strong>{" "}
-                          Favorable tax treatment for international operations
+                          {t(
+                            "Favorable tax treatment for international operations",
+                          )}
                         </span>
                       </li>
                     </ul>
@@ -956,7 +979,7 @@ export default function WhitePaperPage() {
                     style={{ backgroundColor: "#0f172a" }}
                   >
                     <h4 className="text-[#FFC300] font-semibold text-xl mb-4">
-                      Compliance & Regulation
+                      {t("Compliance & Regulation")}
                     </h4>
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-start">
@@ -965,8 +988,10 @@ export default function WhitePaperPage() {
                           size={20}
                         />
                         <span>
-                          <strong className="text-white">KYC/AML:</strong>{" "}
-                          Compliant identity verification processes
+                          <strong className="text-white">
+                            {t("KYC/AML:")}
+                          </strong>{" "}
+                          {t("Compliant identity verification processes")}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -976,9 +1001,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Data Protection:
+                            {t("Data Protection:")}
                           </strong>{" "}
-                          GDPR and local data privacy law compliance
+                          {t("GDPR and local data privacy law compliance")}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -988,9 +1013,9 @@ export default function WhitePaperPage() {
                         />
                         <span>
                           <strong className="text-white">
-                            Financial Reporting:
+                            {t("Financial Reporting:")}
                           </strong>{" "}
-                          Transparent financial statements and audits
+                          {t("Transparent financial statements and audits")}
                         </span>
                       </li>
                     </ul>

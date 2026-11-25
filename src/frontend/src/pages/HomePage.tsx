@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -23,43 +24,51 @@ import { useState } from "react";
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [isIoMPopupOpen, setIsIoMPopupOpen] = useState(false);
 
   // Static IoM Hybrid Company popup content
   const ioMPopupContent = {
-    mainTitle: "IoM Hybrid Company as Legal Wrapper for TMU AI DAO",
-    mainContent:
+    mainTitle: t("IoM Hybrid Company as Legal Wrapper for TMU AI DAO"),
+    mainContent: t(
       "The Isle of Man (IoM) hybrid company is being promoted as a viable legal wrapper for Decentralized Autonomous Organizations (DAOs). This structure offers a way to combine the flexibility of a DAO with a recognized, compliant legal entity, which helps address legal challenges regarding liability and regulation that 'orphaned' DAOs often face.",
+    ),
     sections: [
       {
-        title: "How the IoM Hybrid Company Suits a DAO",
-        content:
+        title: t("How the IoM Hybrid Company Suits a DAO"),
+        content: t(
           "The IoM hybrid company structure provides a legal framework that bridges traditional corporate governance with decentralized autonomous operations.",
+        ),
       },
       {
-        title: "Structure:",
-        content:
+        title: t("Structure:"),
+        content: t(
           "The IoM hybrid combines elements of both traditional companies and DAOs, allowing for flexible governance while maintaining legal compliance.",
+        ),
       },
       {
-        title: "Legal Personality:",
-        content:
+        title: t("Legal Personality:"),
+        content: t(
           "The structure provides a recognized legal entity that can enter contracts, own assets, and be held accountable under law.",
+        ),
       },
       {
-        title: "Role Alignment:",
-        content:
+        title: t("Role Alignment:"),
+        content: t(
           "Token holders can participate in governance while the legal entity handles regulatory compliance and traditional business operations.",
+        ),
       },
       {
-        title: "Flexibility:",
-        content:
+        title: t("Flexibility:"),
+        content: t(
           "The hybrid structure allows for customization of governance mechanisms while maintaining legal standing in multiple jurisdictions.",
+        ),
       },
       {
-        title: "Compliance:",
-        content:
+        title: t("Compliance:"),
+        content: t(
           "The IoM framework ensures compliance with international regulations while preserving the decentralized nature of DAO operations.",
+        ),
       },
     ],
     popupColor: "#0a1628",
@@ -86,28 +95,30 @@ export default function HomePage() {
                 className="text-white font-semibold px-4 py-1.5 text-sm"
                 style={{ backgroundColor: "#009B3A" }}
               >
-                Powered by ICP
+                {t("Powered by ICP")}
               </Badge>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                TMU AI DAO is a Profitable thing to do for all parties
-                concerned.
+                {t(
+                  "TMU AI DAO is a Profitable thing to do for all parties concerned.",
+                )}
               </h1>
 
               <div className="space-y-4">
                 <div className="flex gap-3">
                   <div className="flex-shrink-0 w-2 h-2 rounded-full bg-white mt-2" />
                   <p className="text-gray-300 text-lg">
-                    You get best value for your money that you would spend for
-                    payment for services that you normally would need to use.
+                    {t(
+                      "You get best value for your money that you would spend for payment for services that you normally would need to use.",
+                    )}
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <div className="flex-shrink-0 w-2 h-2 rounded-full bg-gray-400 mt-2" />
                   <p className="text-gray-400 text-lg">
-                    Your money spend helps build a Global Social Enterprise
-                    dedicated to Nation Building and Social Edification
-                    addressing the crises of many sectors.
+                    {t(
+                      "Your money spend helps build a Global Social Enterprise dedicated to Nation Building and Social Edification addressing the crises of many sectors.",
+                    )}
                   </p>
                 </div>
               </div>
@@ -122,7 +133,7 @@ export default function HomePage() {
                 }}
                 onClick={() => navigate({ to: "/signup" })}
               >
-                Join the Movement
+                {t("Join the Movement")}
                 <ArrowRight
                   className="ml-2 group-hover:translate-x-1 transition-transform"
                   size={20}
@@ -148,19 +159,19 @@ export default function HomePage() {
             {/* Left Side Content */}
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                A truly Global Social Enterprise
+                {t("A truly Global Social Enterprise")}
               </h2>
 
               <p className="text-white text-lg leading-relaxed">
-                TMU AI DAO is being organized as a Swiss AG for a legal wrapper
-                for the DAO with the requisite license for issuance of $TMU
-                Utility Tokens. It is designed to endure as a social
-                organization engendering social good for all time.
+                {t(
+                  "TMU AI DAO is being organized as a Swiss AG for a legal wrapper for the DAO with the requisite license for issuance of $TMU Utility Tokens. It is designed to endure as a social organization engendering social good for all time.",
+                )}
               </p>
 
               <p className="text-white text-lg leading-relaxed">
-                You can Participate in it as a stakeholder, a builder and a doer
-                in Nation Building & Social Edification{" "}
+                {t(
+                  "You can Participate in it as a stakeholder, a builder and a doer in Nation Building & Social Edification",
+                )}{" "}
                 <span
                   className="font-semibold"
                   style={{
@@ -171,7 +182,9 @@ export default function HomePage() {
                     backgroundClip: "text",
                   }}
                 >
-                  with as little spend as US$10 for 1000 $TMU Utility Tokens
+                  {t(
+                    "with as little spend as US$10 for 1000 $TMU Utility Tokens",
+                  )}
                 </span>
                 .
               </p>
@@ -186,7 +199,7 @@ export default function HomePage() {
                 }}
                 onClick={() => navigate({ to: "/signup" })}
               >
-                Join the Movement
+                {t("Join the Movement")}
                 <ArrowRight
                   className="ml-2 group-hover:translate-x-1 transition-transform"
                   size={20}
@@ -198,7 +211,7 @@ export default function HomePage() {
             <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
               <img
                 src="/assets/generated/global-social-enterprise-illustration.dim_800x600.png"
-                alt="Global Social Enterprise - Stakeholder, Builder, Doer"
+                alt={t("Global Social Enterprise - Stakeholder, Builder, Doer")}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -235,7 +248,7 @@ export default function HomePage() {
                 className="text-base md:text-lg"
                 style={{ color: "#9CA3AF" }}
               >
-                $TMU Total Supply
+                {t("$TMU Total Supply")}
               </div>
             </div>
 
@@ -251,7 +264,7 @@ export default function HomePage() {
                 className="text-base md:text-lg"
                 style={{ color: "#9CA3AF" }}
               >
-                Built on Internet Computer
+                {t("Built on Internet Computer")}
               </div>
             </div>
 
@@ -277,7 +290,7 @@ export default function HomePage() {
                 className="text-base md:text-lg"
                 style={{ color: "#9CA3AF" }}
               >
-                People to Serve
+                {t("People to Serve")}
               </div>
             </div>
           </div>
@@ -287,22 +300,22 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-base md:text-lg text-white">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🇷🇼</span>
-                <span>Rwanda</span>
+                <span>{t("Rwanda")}</span>
               </div>
               <span className="text-gray-600">|</span>
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🇳🇬</span>
-                <span>Nigeria</span>
+                <span>{t("Nigeria")}</span>
               </div>
               <span className="text-gray-600">|</span>
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🇲🇦</span>
-                <span>Morocco</span>
+                <span>{t("Morocco")}</span>
               </div>
               <span className="text-gray-600">|</span>
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🇰🇪</span>
-                <span>Kenya</span>
+                <span>{t("Kenya")}</span>
               </div>
             </div>
           </div>
@@ -317,7 +330,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Value Propositions
+              {t("Value Propositions")}
             </h2>
           </div>
 
@@ -331,16 +344,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <img
                     src="/assets/generated/ai-brain-icon-transparent.dim_64x64.png"
-                    alt="AI Brain Icon"
+                    alt={t("AI Brain Icon")}
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <CardTitle className="text-white text-xl mb-3">
-                  AI-Powered Services
+                  {t("AI-Powered Services")}
                 </CardTitle>
                 <CardDescription className="text-gray-400 text-base leading-relaxed">
-                  Health, Education, Agriculture, Finance - AI microservices for
-                  essential needs
+                  {t(
+                    "Health, Education, Agriculture, Finance - AI microservices for essential needs",
+                  )}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -354,16 +368,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <img
                     src="/assets/generated/digital-id-icon-transparent.dim_64x64.png"
-                    alt="Digital ID Icon"
+                    alt={t("Digital ID Icon")}
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <CardTitle className="text-white text-xl mb-3">
-                  Decentralized Identity
+                  {t("Decentralized Identity")}
                 </CardTitle>
                 <CardDescription className="text-gray-400 text-base leading-relaxed">
-                  Multi-country digital identity with ZK proofs and verifiable
-                  credentials
+                  {t(
+                    "Multi-country digital identity with ZK proofs and verifiable credentials",
+                  )}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -377,16 +392,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <img
                     src="/assets/generated/web2-web3-bridge-icon-transparent.dim_64x64.png"
-                    alt="Web2 to Web3 Bridge Icon"
+                    alt={t("Web2 to Web3 Bridge Icon")}
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <CardTitle className="text-white text-xl mb-3">
-                  Web2 to Web3 Bridge
+                  {t("Web2 to Web3 Bridge")}
                 </CardTitle>
                 <CardDescription className="text-gray-400 text-base leading-relaxed">
-                  Seamless transition from traditional services to
-                  blockchain-powered solutions
+                  {t(
+                    "Seamless transition from traditional services to blockchain-powered solutions",
+                  )}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -400,16 +416,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <img
                     src="/assets/generated/community-governance-icon-transparent.dim_64x64.png"
-                    alt="Community Governance Icon"
+                    alt={t("Community Governance Icon")}
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <CardTitle className="text-white text-xl mb-3">
-                  Community Governance
+                  {t("Community Governance")}
                 </CardTitle>
                 <CardDescription className="text-gray-400 text-base leading-relaxed">
-                  TMU-NNS governance system with SubDAOs for sectors and
-                  countries
+                  {t(
+                    "TMU-NNS governance system with SubDAOs for sectors and countries",
+                  )}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -428,7 +445,7 @@ export default function HomePage() {
             <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center order-2 lg:order-1">
               <img
                 src="/assets/generated/ai-blockchain-brain-network-clean.dim_800x600.png"
-                alt="AI and Blockchain Integration"
+                alt={t("AI and Blockchain Integration")}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -439,18 +456,17 @@ export default function HomePage() {
                 className="text-white font-semibold px-4 py-1.5 text-sm"
                 style={{ backgroundColor: "#009B3A" }}
               >
-                Powered by ICP
+                {t("Powered by ICP")}
               </Badge>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Built on Internet Computer
+                {t("Built on Internet Computer")}
               </h2>
 
               <p className="text-white text-lg leading-relaxed">
-                TMU AI DAO leverages the Internet Computer Protocol for
-                unparalleled speed, security, and scalability. Our
-                infrastructure ensures that every transaction is transparent,
-                efficient, and truly decentralized.
+                {t(
+                  "TMU AI DAO leverages the Internet Computer Protocol for unparalleled speed, security, and scalability. Our infrastructure ensures that every transaction is transparent, efficient, and truly decentralized.",
+                )}
               </p>
 
               <div className="space-y-4 pt-4">
@@ -462,7 +478,7 @@ export default function HomePage() {
                     <Check className="text-white" size={16} />
                   </div>
                   <p className="text-white text-lg">
-                    Lightning-fast transactions with minimal fees
+                    {t("Lightning-fast transactions with minimal fees")}
                   </p>
                 </div>
 
@@ -474,7 +490,7 @@ export default function HomePage() {
                     <Check className="text-white" size={16} />
                   </div>
                   <p className="text-white text-lg">
-                    Fully on-chain governance and data storage
+                    {t("Fully on-chain governance and data storage")}
                   </p>
                 </div>
 
@@ -486,7 +502,7 @@ export default function HomePage() {
                     <Check className="text-white" size={16} />
                   </div>
                   <p className="text-white text-lg">
-                    Environmentally sustainable blockchain technology
+                    {t("Environmentally sustainable blockchain technology")}
                   </p>
                 </div>
               </div>
@@ -500,11 +516,12 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why TMU AI DAO?
+              {t("Why TMU AI DAO?")}
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Empowering communities through decentralized governance and
-              innovative technology
+              {t(
+                "Empowering communities through decentralized governance and innovative technology",
+              )}
             </p>
           </div>
 
@@ -520,10 +537,13 @@ export default function HomePage() {
                 >
                   <Globe className="text-white" size={24} />
                 </div>
-                <CardTitle className="text-white">Global Reach</CardTitle>
+                <CardTitle className="text-white">
+                  {t("Global Reach")}
+                </CardTitle>
                 <CardDescription className="text-gray-400">
-                  A worldwide community of innovators and builders working
-                  together
+                  {t(
+                    "A worldwide community of innovators and builders working together",
+                  )}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -539,9 +559,11 @@ export default function HomePage() {
                 >
                   <Users className="text-[#0a1628]" size={24} />
                 </div>
-                <CardTitle className="text-white">Community Driven</CardTitle>
+                <CardTitle className="text-white">
+                  {t("Community Driven")}
+                </CardTitle>
                 <CardDescription className="text-gray-400">
-                  Decisions made by the community, for the community
+                  {t("Decisions made by the community, for the community")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -557,9 +579,11 @@ export default function HomePage() {
                 >
                   <Zap className="text-white" size={24} />
                 </div>
-                <CardTitle className="text-white">AI Powered</CardTitle>
+                <CardTitle className="text-white">{t("AI Powered")}</CardTitle>
                 <CardDescription className="text-gray-400">
-                  Leveraging artificial intelligence for smarter governance
+                  {t(
+                    "Leveraging artificial intelligence for smarter governance",
+                  )}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -576,10 +600,10 @@ export default function HomePage() {
                   <Shield className="text-white" size={24} />
                 </div>
                 <CardTitle className="text-white">
-                  Secure & Transparent
+                  {t("Secure & Transparent")}
                 </CardTitle>
                 <CardDescription className="text-gray-400">
-                  Built on the Internet Computer for maximum security
+                  {t("Built on the Internet Computer for maximum security")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -595,9 +619,11 @@ export default function HomePage() {
                 >
                   <Coins className="text-[#0a1628]" size={24} />
                 </div>
-                <CardTitle className="text-white">Token Economy</CardTitle>
+                <CardTitle className="text-white">
+                  {t("Token Economy")}
+                </CardTitle>
                 <CardDescription className="text-gray-400">
-                  Fair and sustainable tokenomics for all participants
+                  {t("Fair and sustainable tokenomics for all participants")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -613,9 +639,9 @@ export default function HomePage() {
                 >
                   <Network className="text-white" size={24} />
                 </div>
-                <CardTitle className="text-white">Web3 Bridge</CardTitle>
+                <CardTitle className="text-white">{t("Web3 Bridge")}</CardTitle>
                 <CardDescription className="text-gray-400">
-                  Seamlessly connecting Web2 and Web3 ecosystems
+                  {t("Seamlessly connecting Web2 and Web3 ecosystems")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -629,18 +655,17 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Our Mission
+                {t("Our Mission")}
               </h2>
               <p className="text-gray-300 text-lg mb-6">
-                TMU AI DAO is dedicated to creating a decentralized ecosystem
-                that empowers individuals and organizations to collaborate,
-                innovate, and build the future of Web3.
+                {t(
+                  "TMU AI DAO is dedicated to creating a decentralized ecosystem that empowers individuals and organizations to collaborate, innovate, and build the future of Web3.",
+                )}
               </p>
               <p className="text-gray-400 mb-8">
-                Through transparent governance, cutting-edge AI technology, and
-                a commitment to social impact, we're building a platform that
-                bridges the gap between traditional systems and the
-                decentralized future.
+                {t(
+                  "Through transparent governance, cutting-edge AI technology, and a commitment to social impact, we're building a platform that bridges the gap between traditional systems and the decentralized future.",
+                )}
               </p>
               <Button
                 size="lg"
@@ -648,14 +673,14 @@ export default function HomePage() {
                 style={{ backgroundColor: "#009B3A" }}
                 onClick={() => navigate({ to: "/projects" })}
               >
-                Explore Projects
+                {t("Explore Projects")}
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </div>
             <div className="relative">
               <img
                 src="/assets/generated/dao-governance-illustration.dim_800x600.png"
-                alt="DAO Governance"
+                alt={t("DAO Governance")}
                 className="rounded-lg shadow-2xl"
               />
             </div>
@@ -668,11 +693,12 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Join the Revolution?
+              {t("Ready to Join the Revolution?")}
             </h2>
             <p className="text-gray-300 text-lg mb-10">
-              Be part of a global community shaping the future of decentralized
-              governance
+              {t(
+                "Be part of a global community shaping the future of decentralized governance",
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -681,7 +707,7 @@ export default function HomePage() {
                 style={{ backgroundColor: "#009B3A" }}
                 onClick={() => navigate({ to: "/tokenomics" })}
               >
-                View Tokenomics
+                {t("View Tokenomics")}
               </Button>
               <Button
                 size="lg"
@@ -689,7 +715,7 @@ export default function HomePage() {
                 className="border-[#FFC300] text-[#FFC300] hover:bg-[#FFC300] hover:text-[#0a1628] text-lg px-8"
                 onClick={() => navigate({ to: "/roadmap" })}
               >
-                See Roadmap
+                {t("See Roadmap")}
               </Button>
             </div>
           </div>

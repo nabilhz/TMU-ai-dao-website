@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { CheckCircle2, Clock, Star } from "lucide-react";
 
 interface RoadMapPhase {
@@ -16,6 +17,8 @@ interface RoadMapPhase {
 }
 
 export default function RoadMapPage() {
+  const { t } = useLanguage();
+
   // Static roadmap phases data
   const phases: RoadMapPhase[] = [
     {
@@ -162,16 +165,16 @@ export default function RoadMapPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            TMU AI DAO Development Roadmap
+            {t("TMU AI DAO Development Roadmap")}
           </h1>
           <p className="text-gray-400 text-lg mb-6">
-            Our Journey to Serving One Billion People
+            {t("Our Journey to Serving One Billion People")}
           </p>
           <Badge
             className="text-base px-6 py-2"
             style={{ backgroundColor: "#FFC300", color: "#0a1628" }}
           >
-            Phase 2: Launch (2025)
+            {t("Phase 2: Launch (2025)")}
           </Badge>
         </div>
 
@@ -215,7 +218,7 @@ export default function RoadMapPage() {
                         className="text-lg font-bold mb-2 text-center"
                         style={{ color: getPhaseColor(phase.color) }}
                       >
-                        {phase.title}
+                        {t(phase.title)}
                       </h3>
 
                       {/* Status Badge */}
@@ -228,10 +231,11 @@ export default function RoadMapPage() {
                             color: getPhaseColor(phase.color),
                           }}
                         >
-                          {phase.status === "completed" && "✅ Completed"}
-                          {phase.status === "in-progress" && "🔄 In Progress"}
-                          {phase.status === "planned" && "⏳ Planned"}
-                          {phase.status === "vision" && "🌟 Vision 2030"}
+                          {phase.status === "completed" && t("✅ Completed")}
+                          {phase.status === "in-progress" &&
+                            t("🔄 In Progress")}
+                          {phase.status === "planned" && t("⏳ Planned")}
+                          {phase.status === "vision" && t("🌟 Vision 2030")}
                         </Badge>
                       </div>
 
@@ -245,7 +249,8 @@ export default function RoadMapPage() {
                           }}
                         />
                         <p className="text-xs text-gray-400 text-center mt-1">
-                          {phase.progressPercentage}% Complete
+                          {phase.progressPercentage}
+                          {t("% Complete")}
                         </p>
                       </div>
 
@@ -260,7 +265,7 @@ export default function RoadMapPage() {
                               >
                                 •
                               </span>
-                              <span className="line-clamp-2">{item}</span>
+                              <span className="line-clamp-2">{t(item)}</span>
                             </li>
                           ))}
                         </ul>
@@ -270,7 +275,7 @@ export default function RoadMapPage() {
                       {phase.achievements.length > 0 && (
                         <div className="mb-2">
                           <p className="text-xs font-semibold text-gray-400 mb-1">
-                            Achievements:
+                            {t("Achievements:")}
                           </p>
                           <div className="flex flex-wrap gap-1">
                             {phase.achievements
@@ -280,7 +285,7 @@ export default function RoadMapPage() {
                                   key={achievement}
                                   className="text-xs text-[#009B3A]"
                                 >
-                                  ✓ {achievement}
+                                  ✓ {t(achievement)}
                                 </span>
                               ))}
                           </div>
@@ -290,7 +295,7 @@ export default function RoadMapPage() {
                       {phase.milestones.length > 0 && (
                         <div className="mb-2">
                           <p className="text-xs font-semibold text-gray-400 mb-1">
-                            Milestones:
+                            {t("Milestones:")}
                           </p>
                           <div className="flex flex-wrap gap-1">
                             {phase.milestones.slice(0, 2).map((milestone) => (
@@ -298,7 +303,7 @@ export default function RoadMapPage() {
                                 key={milestone}
                                 className="text-xs text-[#FFC300]"
                               >
-                                🎯 {milestone}
+                                🎯 {t(milestone)}
                               </span>
                             ))}
                           </div>
@@ -307,14 +312,14 @@ export default function RoadMapPage() {
 
                       {/* User Target */}
                       <div className="text-center pt-2 border-t border-gray-700">
-                        <p className="text-xs text-gray-400">Target</p>
+                        <p className="text-xs text-gray-400">{t("Target")}</p>
                         <p
                           className="text-lg font-bold"
                           style={{ color: getPhaseColor(phase.color) }}
                         >
                           {formatUserTarget(phase.userTarget)}
                         </p>
-                        <p className="text-xs text-gray-400">users</p>
+                        <p className="text-xs text-gray-400">{t("users")}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -358,7 +363,7 @@ export default function RoadMapPage() {
                         className="text-2xl font-bold mb-2"
                         style={{ color: getPhaseColor(phase.color) }}
                       >
-                        {phase.title}
+                        {t(phase.title)}
                       </h3>
 
                       {/* Status Badge */}
@@ -370,10 +375,10 @@ export default function RoadMapPage() {
                           color: getPhaseColor(phase.color),
                         }}
                       >
-                        {phase.status === "completed" && "✅ Completed"}
-                        {phase.status === "in-progress" && "🔄 In Progress"}
-                        {phase.status === "planned" && "⏳ Planned"}
-                        {phase.status === "vision" && "🌟 Vision 2030"}
+                        {phase.status === "completed" && t("✅ Completed")}
+                        {phase.status === "in-progress" && t("🔄 In Progress")}
+                        {phase.status === "planned" && t("⏳ Planned")}
+                        {phase.status === "vision" && t("🌟 Vision 2030")}
                       </Badge>
 
                       {/* Progress Bar */}
@@ -386,14 +391,15 @@ export default function RoadMapPage() {
                           }}
                         />
                         <p className="text-sm text-gray-400 mt-1">
-                          {phase.progressPercentage}% Complete
+                          {phase.progressPercentage}
+                          {t("% Complete")}
                         </p>
                       </div>
 
                       {/* Quarterly Breakdown */}
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-white mb-2">
-                          Timeline:
+                          {t("Timeline:")}
                         </h4>
                         <ul className="space-y-2 text-sm text-gray-300">
                           {phase.quarterlyBreakdown.map((item) => (
@@ -404,7 +410,7 @@ export default function RoadMapPage() {
                               >
                                 •
                               </span>
-                              <span>{item}</span>
+                              <span>{t(item)}</span>
                             </li>
                           ))}
                         </ul>
@@ -414,7 +420,7 @@ export default function RoadMapPage() {
                       {phase.achievements.length > 0 && (
                         <div className="mb-4">
                           <h4 className="text-sm font-semibold text-white mb-2">
-                            Achievements:
+                            {t("Achievements:")}
                           </h4>
                           <div className="space-y-1">
                             {phase.achievements.map((achievement) => (
@@ -422,7 +428,7 @@ export default function RoadMapPage() {
                                 key={achievement}
                                 className="text-sm text-[#009B3A]"
                               >
-                                ✓ {achievement}
+                                ✓ {t(achievement)}
                               </p>
                             ))}
                           </div>
@@ -433,7 +439,7 @@ export default function RoadMapPage() {
                       {phase.milestones.length > 0 && (
                         <div className="mb-4">
                           <h4 className="text-sm font-semibold text-white mb-2">
-                            Milestones:
+                            {t("Milestones:")}
                           </h4>
                           <div className="space-y-1">
                             {phase.milestones.map((milestone) => (
@@ -441,7 +447,7 @@ export default function RoadMapPage() {
                                 key={milestone}
                                 className="text-sm text-[#FFC300]"
                               >
-                                🎯 {milestone}
+                                🎯 {t(milestone)}
                               </p>
                             ))}
                           </div>
@@ -450,14 +456,14 @@ export default function RoadMapPage() {
 
                       {/* User Target */}
                       <div className="pt-4 border-t border-gray-700">
-                        <p className="text-sm text-gray-400">Target</p>
+                        <p className="text-sm text-gray-400">{t("Target")}</p>
                         <p
                           className="text-3xl font-bold"
                           style={{ color: getPhaseColor(phase.color) }}
                         >
                           {formatUserTarget(phase.userTarget)}
                         </p>
-                        <p className="text-sm text-gray-400">users</p>
+                        <p className="text-sm text-gray-400">{t("users")}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -477,17 +483,17 @@ export default function RoadMapPage() {
             >
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-6 text-center">
-                  Projected User Growth
+                  {t("Projected User Growth")}
                 </h3>
                 <div className="flex justify-center">
                   <img
                     src="/assets/generated/user-growth-chart.dim_400x200.png"
-                    alt="User Growth Chart"
+                    alt={t("User Growth Chart")}
                     className="max-w-full h-auto"
                   />
                 </div>
                 <p className="text-center text-gray-400 mt-4">
-                  Our ambitious goal: reaching 1 billion people by 2030
+                  {t("Our ambitious goal: reaching 1 billion people by 2030")}
                 </p>
               </CardContent>
             </Card>

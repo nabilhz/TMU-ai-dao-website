@@ -7,69 +7,22 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
-export interface TransformationOutput {
-    status: bigint;
-    body: Uint8Array;
-    headers: Array<http_header>;
-}
-export interface TokenPurchaseValidation {
-    sanitizedAmount: bigint;
-    errorMessage?: string;
-    isValid: boolean;
-}
-export type Time = bigint;
-export interface Guide {
-    title: string;
-    description: string;
-}
-export interface ResourcePageContent {
-    architectureLayers: Array<ArchitectureLayer>;
-    resources: Array<Resource>;
-    guides: Array<Guide>;
-}
 export interface ArchitectureLayer {
     title: string;
     description: string;
 }
-export interface http_header {
+export interface Guide {
+    title: string;
+    description: string;
+}
+export interface HttpHeader {
     value: string;
     name: string;
 }
-export interface http_request_result {
+export interface HttpRequestResult {
     status: bigint;
     body: Uint8Array;
-    headers: Array<http_header>;
-}
-export interface ShoppingItem {
-    productName: string;
-    currency: string;
-    quantity: bigint;
-    priceInCents: bigint;
-    productDescription: string;
-}
-export interface TransformationInput {
-    context: Uint8Array;
-    response: http_request_result;
-}
-export interface Resource {
-    title: string;
-    filePath: string;
-}
-export type StripeSessionStatus = {
-    __kind__: "completed";
-    completed: {
-        userPrincipal?: string;
-        response: string;
-    };
-} | {
-    __kind__: "failed";
-    failed: {
-        error: string;
-    };
-};
-export interface StripeConfiguration {
-    allowedCountries: Array<string>;
-    secretKey: string;
+    headers: Array<HttpHeader>;
 }
 export interface Project {
     url: string;
@@ -86,12 +39,59 @@ export interface PurchaseSummary {
     price: bigint;
     amount: bigint;
 }
+export interface Resource {
+    title: string;
+    filePath: string;
+}
+export interface ResourcePageContent {
+    architectureLayers: Array<ArchitectureLayer>;
+    resources: Array<Resource>;
+    guides: Array<Guide>;
+}
+export interface ShoppingItem {
+    productName: string;
+    currency: string;
+    quantity: bigint;
+    priceInCents: bigint;
+    productDescription: string;
+}
+export interface StripeConfiguration {
+    allowedCountries: Array<string>;
+    secretKey: string;
+}
+export type StripeSessionStatus = {
+    __kind__: "completed";
+    completed: {
+        userPrincipal?: string;
+        response: string;
+    };
+} | {
+    __kind__: "failed";
+    failed: {
+        error: string;
+    };
+};
+export type Time = bigint;
 export interface TmuIresPopupContent {
     title: string;
     documentationLink: string;
     description: string;
     videoLink: string;
     additionalLinks: string;
+}
+export interface TokenPurchaseValidation {
+    sanitizedAmount: bigint;
+    errorMessage?: string;
+    isValid: boolean;
+}
+export interface TransformationInput {
+    context: Uint8Array;
+    response: HttpRequestResult;
+}
+export interface TransformationOutput {
+    status: bigint;
+    body: Uint8Array;
+    headers: Array<HttpHeader>;
 }
 export interface UserProfile {
     createdAt: Time;

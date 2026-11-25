@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/i18n/LanguageContext";
 import {
   BookOpen,
   Download,
@@ -77,6 +78,7 @@ const staticContent = {
 };
 
 export default function ResourcePage() {
+  const { t } = useLanguage();
   const content = staticContent;
 
   // Icon mapping for guides
@@ -95,24 +97,26 @@ export default function ResourcePage() {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Resources & Documentation
+              {t("Resources & Documentation")}
             </h1>
             <p className="text-lg" style={{ color: "#9CA3AF" }}>
-              Everything you need to understand and participate in TMU AI DAO
+              {t(
+                "Everything you need to understand and participate in TMU AI DAO",
+              )}
             </p>
           </div>
 
           {/* Section 1: TMU Technical Architecture */}
           <section className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              TMU Technical Architecture
+              {t("TMU Technical Architecture")}
             </h2>
             <div className="relative">
               {/* Architecture Diagram Image */}
               <div className="mb-8 flex justify-center">
                 <img
                   src="/assets/generated/tmu-technical-architecture-diagram.dim_800x600.png"
-                  alt="TMU Technical Architecture"
+                  alt={t("TMU Technical Architecture")}
                   className="rounded-lg max-w-full h-auto"
                 />
               </div>
@@ -134,13 +138,13 @@ export default function ResourcePage() {
                           {index + 1}
                         </div>
                         <CardTitle className="text-white text-lg">
-                          {layer.title}
+                          {t(layer.title)}
                         </CardTitle>
                       </div>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm" style={{ color: "#9CA3AF" }}>
-                        {layer.description}
+                        {t(layer.description)}
                       </p>
                     </CardContent>
                   </Card>
@@ -152,7 +156,7 @@ export default function ResourcePage() {
           {/* Section 2: User Guides */}
           <section className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              Getting Started Guides
+              {t("Getting Started Guides")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {content?.guides.map((guide) => {
@@ -173,11 +177,11 @@ export default function ResourcePage() {
                         </div>
                       </div>
                       <CardTitle className="text-white text-xl">
-                        {guide.title}
+                        {t(guide.title)}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p style={{ color: "#9CA3AF" }}>{guide.description}</p>
+                      <p style={{ color: "#9CA3AF" }}>{t(guide.description)}</p>
                     </CardContent>
                   </Card>
                 );
@@ -188,7 +192,7 @@ export default function ResourcePage() {
           {/* Section 3: Downloadable Resources */}
           <section>
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              Downloadable Resources
+              {t("Downloadable Resources")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {content?.resources.map((resource) => (
@@ -208,7 +212,7 @@ export default function ResourcePage() {
                           />
                         </div>
                         <CardTitle className="text-white text-xl">
-                          {resource.title}
+                          {t(resource.title)}
                         </CardTitle>
                       </div>
                       <Download

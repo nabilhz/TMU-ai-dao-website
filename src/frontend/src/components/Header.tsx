@@ -1,4 +1,6 @@
+import LanguageSwitch from "@/components/LanguageSwitch";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -16,6 +18,7 @@ const navItems = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
@@ -49,37 +52,53 @@ export default function Header() {
                     : "text-gray-300 hover:text-white hover:bg-white/5"
                 }`}
               >
-                {item.label}
+                {t(item.label)}
               </Link>
             ))}
           </nav>
 
           {/* Desktop Action Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
+            <div className="hidden xl:flex">
+              <button
+                type="button"
+                className="px-1.5 py-1 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-md"
+                onClick={() => setLanguage(language === "en" ? "fr" : "en")}
+                aria-label={
+                  language === "en" ? "Passer au français" : "Switch to English"
+                }
+                data-ocid="language.switch"
+              >
+                {language === "en" ? "FR" : "EN"}
+              </button>
+            </div>
             <Button
               variant="outline"
               className="border-[#FFC300] text-[#FFC300] hover:bg-[#FFC300] hover:text-[#0a1628]"
               onClick={() => navigate({ to: "/signup" })}
             >
-              Join TMU AI DAO
+              {t("Join TMU AI DAO")}
             </Button>
             <Button
               className="text-white"
               style={{ backgroundColor: "#009B3A" }}
               onClick={() => navigate({ to: "/" })}
             >
-              Launch App
+              {t("Launch App")}
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="lg:hidden text-white p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="lg:hidden flex items-center space-x-2">
+            <LanguageSwitch />
+            <button
+              type="button"
+              className="lg:hidden text-white p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -97,7 +116,7 @@ export default function Header() {
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {t(item.label)}
                 </Link>
               ))}
             </nav>
@@ -110,7 +129,7 @@ export default function Header() {
                   setMobileMenuOpen(false);
                 }}
               >
-                Join TMU AI DAO
+                {t("Join TMU AI DAO")}
               </Button>
               <Button
                 className="text-white"
@@ -120,7 +139,7 @@ export default function Header() {
                   setMobileMenuOpen(false);
                 }}
               >
-                Launch App
+                {t("Launch App")}
               </Button>
             </div>
           </div>

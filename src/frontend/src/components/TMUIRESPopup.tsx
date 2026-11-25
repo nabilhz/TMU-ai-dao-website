@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { ExternalLink, X } from "lucide-react";
 
 interface TMUIRESPopupProps {
@@ -18,6 +19,8 @@ export default function TMUIRESPopup({
   onClose,
   content,
 }: TMUIRESPopupProps) {
+  const { t } = useLanguage();
+
   if (!isOpen) return null;
 
   return (
@@ -31,7 +34,7 @@ export default function TMUIRESPopup({
           type="button"
           onClick={onClose}
           className="absolute top-4 right-4 text-white hover:text-[#FFC300] transition-colors z-10"
-          aria-label="Close popup"
+          aria-label={t("Close popup")}
         >
           <X className="w-6 h-6" />
         </button>
@@ -54,7 +57,7 @@ export default function TMUIRESPopup({
           {/* Links Section */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white mb-4">
-              Resources:
+              {t("Resources:")}
             </h3>
 
             <div className="space-y-3">
@@ -74,7 +77,7 @@ export default function TMUIRESPopup({
                   className="flex items-center gap-2"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Documentation
+                  {t("Documentation")}
                 </a>
               </Button>
 
@@ -94,7 +97,7 @@ export default function TMUIRESPopup({
                   className="flex items-center gap-2"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Video
+                  {t("Video")}
                 </a>
               </Button>
 
@@ -114,7 +117,7 @@ export default function TMUIRESPopup({
                   className="flex items-center gap-2"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Links
+                  {t("Links")}
                 </a>
               </Button>
             </div>

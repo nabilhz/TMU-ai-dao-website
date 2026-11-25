@@ -9,11 +9,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Wallet } from "lucide-react";
 import { useState } from "react";
 import { SiMastercard, SiVisa } from "react-icons/si";
 
 export default function SignUpPage() {
+  const { t } = useLanguage();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
@@ -98,14 +100,15 @@ export default function SignUpPage() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Join the Movement
+            {t("Join the Movement")}
           </h1>
           <p className="text-xl text-white mb-3">
-            Get $TMU Utility Tokens to Unlock Global Impact!
+            {t("Get $TMU Utility Tokens to Unlock Global Impact!")}
           </p>
           <p className="text-base text-[#9CA3AF] max-w-3xl mx-auto">
-            Support decentralized applications (Etitude, Morshid, Airello, and
-            more) that leverage $TMU Tokens for secure transactions.
+            {t(
+              "Support decentralized applications (Etitude, Morshid, Airello, and more) that leverage $TMU Tokens for secure transactions.",
+            )}
           </p>
         </div>
 
@@ -122,13 +125,13 @@ export default function SignUpPage() {
                   value="create"
                   className="data-[state=active]:bg-[#009B3A] data-[state=active]:text-white text-white/70"
                 >
-                  Create Account
+                  {t("Create Account")}
                 </TabsTrigger>
                 <TabsTrigger
                   value="signin"
                   className="data-[state=active]:bg-[#009B3A] data-[state=active]:text-white text-white/70"
                 >
-                  Sign In
+                  {t("Sign In")}
                 </TabsTrigger>
               </TabsList>
 
@@ -137,12 +140,12 @@ export default function SignUpPage() {
                 <form onSubmit={handleCreateAccount} className="space-y-4">
                   <div>
                     <Label htmlFor="fullName" className="text-white mb-2 block">
-                      Full Name *
+                      {t("Full Name *")}
                     </Label>
                     <Input
                       id="fullName"
                       type="text"
-                      placeholder="Enter your full name"
+                      placeholder={t("Enter your full name")}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       required
@@ -151,12 +154,12 @@ export default function SignUpPage() {
                   </div>
                   <div>
                     <Label htmlFor="email" className="text-white mb-2 block">
-                      Email Address *
+                      {t("Email Address *")}
                     </Label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder={t("Enter your email")}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -165,20 +168,21 @@ export default function SignUpPage() {
                   </div>
                   <div>
                     <Label htmlFor="wallet" className="text-white mb-2 block">
-                      Your Wallet Address
+                      {t("Your Wallet Address")}
                     </Label>
                     <Input
                       id="wallet"
                       type="text"
-                      placeholder="Enter wallet address"
+                      placeholder={t("Enter wallet address")}
                       value={walletAddress}
                       onChange={(e) => setWalletAddress(e.target.value)}
                       readOnly
                       className="bg-[#0a1628] border-white/20 text-white placeholder:text-gray-500 cursor-not-allowed"
                     />
                     <p className="text-[#9CA3AF] text-xs mt-1">
-                      Your wallet address will be displayed here after
-                      connecting your Internet Identity.
+                      {t(
+                        "Your wallet address will be displayed here after connecting your Internet Identity.",
+                      )}
                     </p>
                   </div>
                   <Button
@@ -186,13 +190,13 @@ export default function SignUpPage() {
                     className="w-full text-white font-semibold"
                     style={{ backgroundColor: "#009B3A" }}
                   >
-                    Create Account
+                    {t("Create Account")}
                   </Button>
 
                   {/* Web3 Connection Section */}
                   <div className="mt-6 space-y-3">
                     <p className="text-center text-white text-sm">
-                      Or connect with Web3
+                      {t("Or connect with Web3")}
                     </p>
                     <Button
                       type="button"
@@ -201,10 +205,10 @@ export default function SignUpPage() {
                       style={{ backgroundColor: "#14B8A6" }}
                     >
                       <Wallet className="w-5 h-5" />
-                      Connect Internet Identity
+                      {t("Connect Internet Identity")}
                     </Button>
                     <p className="text-center text-[#9CA3AF] text-xs">
-                      [Coming Soon] - Web3 wallet integration coming soon
+                      {t("[Coming Soon] - Web3 wallet integration coming soon")}
                     </p>
                   </div>
                 </form>
@@ -218,12 +222,12 @@ export default function SignUpPage() {
                       htmlFor="signInEmail"
                       className="text-white mb-2 block"
                     >
-                      Email Address *
+                      {t("Email Address *")}
                     </Label>
                     <Input
                       id="signInEmail"
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder={t("Enter your email")}
                       value={signInEmail}
                       onChange={(e) => setSignInEmail(e.target.value)}
                       required
@@ -235,12 +239,12 @@ export default function SignUpPage() {
                       htmlFor="signInPassword"
                       className="text-white mb-2 block"
                     >
-                      Password *
+                      {t("Password *")}
                     </Label>
                     <Input
                       id="signInPassword"
                       type="password"
-                      placeholder="Enter your password"
+                      placeholder={t("Enter your password")}
                       value={signInPassword}
                       onChange={(e) => setSignInPassword(e.target.value)}
                       required
@@ -252,7 +256,7 @@ export default function SignUpPage() {
                     className="w-full text-white font-semibold"
                     style={{ backgroundColor: "#009B3A" }}
                   >
-                    Sign In
+                    {t("Sign In")}
                   </Button>
                 </form>
               </TabsContent>
@@ -265,7 +269,7 @@ export default function SignUpPage() {
             style={{ backgroundColor: "#1a2744" }}
           >
             <h2 className="text-2xl font-bold text-white mb-6">
-              Choose Amount
+              {t("Choose Amount")}
             </h2>
 
             {/* Quick Select Buttons */}
@@ -293,13 +297,13 @@ export default function SignUpPage() {
             {/* Custom Amount Input */}
             <div className="mb-6">
               <Label htmlFor="customAmount" className="text-white mb-2 block">
-                Custom Amount (Tokens)
+                {t("Custom Amount (Tokens)")}
               </Label>
               <Input
                 id="customAmount"
                 type="text"
                 inputMode="numeric"
-                placeholder="Enter custom amount"
+                placeholder={t("Enter custom amount")}
                 value={customAmount}
                 onChange={(e) => handleCustomAmountChange(e.target.value)}
                 onKeyDown={handleCustomAmountKeyDown}
@@ -309,7 +313,7 @@ export default function SignUpPage() {
               />
               {customAmountError && (
                 <p className="text-[#EF3E42] text-sm mt-1">
-                  {customAmountError}
+                  {t(customAmountError)}
                 </p>
               )}
             </div>
@@ -317,21 +321,21 @@ export default function SignUpPage() {
             {/* Currency Selector */}
             <div className="mb-6">
               <Label htmlFor="currency" className="text-white mb-2 block">
-                Fiat Currency
+                {t("Fiat Currency")}
               </Label>
               <Select value={currency} onValueChange={setCurrency}>
                 <SelectTrigger className="bg-[#0a1628] border-white/20 text-white">
-                  <SelectValue placeholder="Select currency" />
+                  <SelectValue placeholder={t("Select currency")} />
                 </SelectTrigger>
                 <SelectContent className="bg-[#1a2744] border-white/20">
                   <SelectItem value="USD" className="text-white">
-                    USD - US Dollar
+                    {t("USD - US Dollar")}
                   </SelectItem>
                   <SelectItem value="EUR" className="text-white">
-                    EUR - Euro
+                    {t("EUR - Euro")}
                   </SelectItem>
                   <SelectItem value="GBP" className="text-white">
-                    GBP - British Pound
+                    {t("GBP - British Pound")}
                   </SelectItem>
                 </SelectContent>
               </Select>
@@ -339,8 +343,9 @@ export default function SignUpPage() {
 
             {/* Note */}
             <p className="text-sm text-[#9CA3AF]">
-              Minimum purchase: $10 for 1000 $TMU. KYC required for amounts over
-              $1000.
+              {t(
+                "Minimum purchase: $10 for 1000 $TMU. KYC required for amounts over $1000.",
+              )}
             </p>
           </div>
 
@@ -350,25 +355,25 @@ export default function SignUpPage() {
             style={{ backgroundColor: "#1a2744" }}
           >
             <h2 className="text-2xl font-bold text-white mb-6">
-              Purchase Summary
+              {t("Purchase Summary")}
             </h2>
 
             <div className="space-y-4 mb-6">
               <div className="flex justify-between text-white">
-                <span>Amount:</span>
+                <span>{t("Amount:")}</span>
                 <span className="font-semibold">{tokens.toFixed(0)} $TMU</span>
               </div>
               <div className="flex justify-between text-white">
-                <span>Price:</span>
+                <span>{t("Price:")}</span>
                 <span className="font-semibold">${price.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-white">
-                <span>Fee:</span>
+                <span>{t("Fee:")}</span>
                 <span className="font-semibold">${fee.toFixed(2)}</span>
               </div>
               <div className="border-t border-white/20 pt-4">
                 <div className="flex justify-between text-white text-lg font-bold">
-                  <span>Total:</span>
+                  <span>{t("Total:")}</span>
                   <span>${total.toFixed(2)}</span>
                 </div>
               </div>
@@ -382,24 +387,24 @@ export default function SignUpPage() {
                 opacity: 0.6,
               }}
             >
-              COMING SOON
+              {t("COMING SOON")}
             </Button>
 
             {/* Coming Soon Text */}
             <p className="text-center text-[#9CA3AF] text-sm mb-4">
-              Payment integration coming soon.
+              {t("Payment integration coming soon.")}
             </p>
 
             {/* Payment Method Icons */}
             <div className="flex items-center justify-center gap-4 mb-4">
               <SiVisa className="text-white text-3xl" />
               <SiMastercard className="text-white text-3xl" />
-              <div className="text-white font-bold text-xl">Stripe</div>
+              <div className="text-white font-bold text-xl">{t("Stripe")}</div>
             </div>
 
             {/* Custodial Balance */}
             <p className="text-center text-[#9CA3AF] text-sm">
-              Custodial Balance: 0 $TMU
+              {t("Custodial Balance: 0 $TMU")}
             </p>
           </div>
         </div>
@@ -407,8 +412,9 @@ export default function SignUpPage() {
         {/* Footer Note */}
         <div className="text-center">
           <p className="text-white text-sm max-w-3xl mx-auto">
-            Payment processed securely with Stripe. Your tokens will be held in
-            TMU custodial wallet until you transfer to external wallet.
+            {t(
+              "Payment processed securely with Stripe. Your tokens will be held in TMU custodial wallet until you transfer to external wallet.",
+            )}
           </p>
         </div>
       </div>

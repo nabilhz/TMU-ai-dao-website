@@ -1345,6 +1345,11 @@ video {
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
@@ -1959,6 +1964,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity, 1));
 }
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
@@ -2220,13 +2229,14 @@ video {
 .running {
   animation-play-state: running;
 }
-.text-gradient-gold {
+  .text-gradient-gold {
     background: linear-gradient(135deg, #ffc300 0%, #ffd700 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-.text-gradient-green {
+
+  .text-gradient-green {
     background: linear-gradient(135deg, #009b3a 0%, #00c853 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -3650,6 +3660,12 @@ video {
   .lg\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:flex {
+    display: flex;
   }
 }
 .\[\&\:first-child\[data-selected\=true\]_button\]\:rounded-l-md:first-child[data-selected=true] button {

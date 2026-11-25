@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/i18n/LanguageContext";
 import {
   AlertTriangle,
   Anchor,
@@ -9,6 +10,8 @@ import {
 } from "lucide-react";
 
 export default function TokenomicsPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="w-full py-20" style={{ backgroundColor: "#0a1628" }}>
       <div className="container mx-auto px-4">
@@ -16,11 +19,12 @@ export default function TokenomicsPage() {
           {/* Header Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              $TMU — The Utility Fuel of TMU AI DAO
+              {t("$TMU — The Utility Fuel of TMU AI DAO")}
             </h1>
             <p className="text-gray-400 text-lg">
-              Powering AI services, governance, and digital identity across
-              Africa
+              {t(
+                "Powering AI services, governance, and digital identity across Africa",
+              )}
             </p>
           </div>
 
@@ -48,7 +52,7 @@ export default function TokenomicsPage() {
                 gap: "8px",
               }}
             >
-              ⬇ Download Tokenomics
+              {t("⬇ Download Tokenomics")}
             </button>
           </div>
 
@@ -65,21 +69,25 @@ export default function TokenomicsPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>
                   <p className="text-5xl font-bold text-white mb-2">
-                    100 Billion
+                    {t("100 Billion")}
                   </p>
-                  <p className="text-gray-400 text-lg">Fixed Total Supply</p>
+                  <p className="text-gray-400 text-lg">
+                    {t("Fixed Total Supply")}
+                  </p>
                 </div>
                 <div>
                   <p className="text-5xl font-bold text-[#FFC300] mb-2">
                     $0.01
                   </p>
-                  <p className="text-gray-400 text-lg">Price per token</p>
+                  <p className="text-gray-400 text-lg">
+                    {t("Price per token")}
+                  </p>
                 </div>
                 <div>
                   <p className="text-4xl font-bold text-white mb-2">
-                    US$10 = 1000 $TMU
+                    {t("US$10 = 1000 $TMU")}
                   </p>
-                  <p className="text-gray-400 text-lg">Entry Point</p>
+                  <p className="text-gray-400 text-lg">{t("Entry Point")}</p>
                 </div>
               </div>
             </CardContent>
@@ -88,7 +96,7 @@ export default function TokenomicsPage() {
           {/* Staking Rewards Section */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-white text-center mb-8">
-              Staking Rewards
+              {t("Staking Rewards")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Bronze - 1 Year */}
@@ -104,12 +112,13 @@ export default function TokenomicsPage() {
                     <span className="text-white text-2xl font-bold">1Y</span>
                   </div>
                   <h3 className="text-3xl font-bold text-[#CD7F32] mb-2">
-                    10% Discount
+                    {t("10% Discount")}
                   </h3>
-                  <p className="text-white text-xl mb-4">1 Year Lock</p>
+                  <p className="text-white text-xl mb-4">{t("1 Year Lock")}</p>
                   <p className="text-gray-400">
-                    Stake your tokens for 1 year and receive a 10% discount on
-                    all services
+                    {t(
+                      "Stake your tokens for 1 year and receive a 10% discount on all services",
+                    )}
                   </p>
                 </CardContent>
               </Card>
@@ -129,12 +138,13 @@ export default function TokenomicsPage() {
                     </span>
                   </div>
                   <h3 className="text-3xl font-bold text-[#C0C0C0] mb-2">
-                    20% Discount
+                    {t("20% Discount")}
                   </h3>
-                  <p className="text-white text-xl mb-4">2 Year Lock</p>
+                  <p className="text-white text-xl mb-4">{t("2 Year Lock")}</p>
                   <p className="text-gray-400">
-                    Stake your tokens for 2 years and receive a 20% discount on
-                    all services
+                    {t(
+                      "Stake your tokens for 2 years and receive a 20% discount on all services",
+                    )}
                   </p>
                 </CardContent>
               </Card>
@@ -154,12 +164,13 @@ export default function TokenomicsPage() {
                     </span>
                   </div>
                   <h3 className="text-3xl font-bold text-[#FFC300] mb-2">
-                    30% Discount
+                    {t("30% Discount")}
                   </h3>
-                  <p className="text-white text-xl mb-4">3 Year Lock</p>
+                  <p className="text-white text-xl mb-4">{t("3 Year Lock")}</p>
                   <p className="text-gray-400">
-                    Stake your tokens for 3 years and receive a 30% discount on
-                    all services
+                    {t(
+                      "Stake your tokens for 3 years and receive a 30% discount on all services",
+                    )}
                   </p>
                 </CardContent>
               </Card>
@@ -169,7 +180,7 @@ export default function TokenomicsPage() {
           {/* Token Utility Section */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-white text-center mb-8">
-              What can $TMU do?
+              {t("What can $TMU do?")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* AI Compute Metering */}
@@ -187,10 +198,10 @@ export default function TokenomicsPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
-                        AI Compute Metering
+                        {t("AI Compute Metering")}
                       </h3>
                       <p className="text-gray-400">
-                        Pay for AI inference and services
+                        {t("Pay for AI inference and services")}
                       </p>
                     </div>
                   </div>
@@ -212,10 +223,10 @@ export default function TokenomicsPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
-                        DID Verification
+                        {t("DID Verification")}
                       </h3>
                       <p className="text-gray-400">
-                        Identity verification fees
+                        {t("Identity verification fees")}
                       </p>
                     </div>
                   </div>
@@ -237,9 +248,11 @@ export default function TokenomicsPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
-                        Credential Anchoring
+                        {t("Credential Anchoring")}
                       </h3>
-                      <p className="text-gray-400">Blockchain record fees</p>
+                      <p className="text-gray-400">
+                        {t("Blockchain record fees")}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -260,10 +273,10 @@ export default function TokenomicsPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
-                        Governance Participation
+                        {t("Governance Participation")}
                       </h3>
                       <p className="text-gray-400">
-                        Vote on proposals via TMU-NNS
+                        {t("Vote on proposals via TMU-NNS")}
                       </p>
                     </div>
                   </div>
@@ -275,7 +288,7 @@ export default function TokenomicsPage() {
           {/* Token Flow Diagram */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-white text-center mb-8">
-              Token Flow
+              {t("Token Flow")}
             </h2>
             <Card
               style={{ backgroundColor: "#1a2744" }}
@@ -288,7 +301,9 @@ export default function TokenomicsPage() {
                       className="w-24 h-24 rounded-full mx-auto mb-3 flex items-center justify-center"
                       style={{ backgroundColor: "#009B3A" }}
                     >
-                      <span className="text-white text-lg font-bold">User</span>
+                      <span className="text-white text-lg font-bold">
+                        {t("User")}
+                      </span>
                     </div>
                   </div>
 
@@ -319,7 +334,7 @@ export default function TokenomicsPage() {
                       style={{ backgroundColor: "#3B82F6" }}
                     >
                       <span className="text-white text-lg font-bold">
-                        AI/Service
+                        {t("AI/Service")}
                       </span>
                     </div>
                   </div>
@@ -335,7 +350,7 @@ export default function TokenomicsPage() {
                       style={{ backgroundColor: "#EF3E42" }}
                     >
                       <span className="text-white text-sm font-bold">
-                        Burn + Vault
+                        {t("Burn + Vault")}
                       </span>
                     </div>
                   </div>
@@ -351,7 +366,7 @@ export default function TokenomicsPage() {
                       style={{ backgroundColor: "#8B5CF6" }}
                     >
                       <span className="text-white text-lg font-bold">
-                        Treasury
+                        {t("Treasury")}
                       </span>
                     </div>
                   </div>
@@ -377,24 +392,26 @@ export default function TokenomicsPage() {
                 />
                 <div>
                   <h3 className="text-xl font-bold text-white mb-4">
-                    ⚠️ IMPORTANT: $TMU is a UTILITY TOKEN, not an investment.
+                    {t(
+                      "⚠️ IMPORTANT: $TMU is a UTILITY TOKEN, not an investment.",
+                    )}
                   </h3>
                   <ul className="space-y-2 text-white">
                     <li className="flex items-start">
                       <span className="text-[#EF3E42] mr-2">•</span>
-                      <span>No equity ownership</span>
+                      <span>{t("No equity ownership")}</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[#EF3E42] mr-2">•</span>
-                      <span>No dividends or profit sharing</span>
+                      <span>{t("No dividends or profit sharing")}</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[#EF3E42] mr-2">•</span>
-                      <span>Required only to access TMU services</span>
+                      <span>{t("Required only to access TMU services")}</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[#EF3E42] mr-2">•</span>
-                      <span>Not a security or financial instrument</span>
+                      <span>{t("Not a security or financial instrument")}</span>
                     </li>
                   </ul>
                 </div>
